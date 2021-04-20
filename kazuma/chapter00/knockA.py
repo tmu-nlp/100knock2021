@@ -1,5 +1,5 @@
-input_arr = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-a = {}
-for i in range(0,len(input_data)):
-    a[i] = input_arr[i]
-print(a)
+input_arrs = [[0, 1], [2, 3], [4, 5]]
+ans_arr = []
+for input_arr in input_arrs:
+    ans_arr += input_arr
+print(ans_arr)

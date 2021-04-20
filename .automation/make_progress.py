@@ -74,7 +74,8 @@ def main():
     users = np.array([user.name for user in data])
     scores = np.array([user.progress for user in data])
 
-    plot_progress(users, scores)
+    if scores.size:
+        plot_progress(users, scores)
 
 
 if __name__ == "__main__":

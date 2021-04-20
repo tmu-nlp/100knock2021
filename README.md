@@ -20,7 +20,7 @@ $ git clone https://github.com/tmu-nlp/100knock2021.git
 $ git pull
 $ git add ./<user_name>/chapter##/knockXX.py
 $ git commit -m 'your message'
-$ git push origin master
+$ git push origin main
 ```
 
 ## 注意事項
@@ -52,7 +52,7 @@ $ git clone https://github.com/tmu-nlp/100knock2021.git
 $ git pull
 $ git add ./<user_name>/chapter##/knockXX.py
 $ git commit -m 'your message'
-$ git push origin master
+$ git push origin main
 ```
 
 ## Notes

@@ -15,7 +15,7 @@ class User:
 
 
 def get_progress() -> List[User]:
-    cur = Path("../")
+    cur = Path(".")
     users = list(
         filter(lambda x: x.is_dir() and x.name not in IGNORE, sorted(cur.iterdir()))
     )
@@ -82,6 +82,6 @@ if __name__ == "__main__":
     # 章数と各章の問題数
     CHAPTER, QUESTIONS = 10, [10] * 10
     # progress bar に表示しないディレクトリ名
-    IGNORE = [".git", ".github", "kiyuna", "tomoshige"]
+    IGNORE = [".git", ".github", ".automation", "kiyuna", "tomoshige"]
 
     main()

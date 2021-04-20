@@ -1,0 +1,1 @@
+input_data = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]

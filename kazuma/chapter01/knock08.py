@@ -11,5 +11,5 @@ def cipher(sentecne):
             new_sentence += character
     return new_sentence
 
-sentence = "I am a Japanese."
+sentence = "I am Japanese."
 print(cipher(sentence))

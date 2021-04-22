@@ -1,3 +1,5 @@
+
+import sys
 #00.reversed string
 string1="stressed"
 print("[00]. "+ string1[::-1] + "\n")
@@ -68,7 +70,49 @@ X,Y=bigram(word1),bigram(word2)
 
 print("[06]. \nunion="+str(set(X)|set(Y))+"intersection: "+str(set(X)&set(Y))+ "difference: "+str(set(X)^set(Y))+"\n")
 #07
+def sT(x,y,z):
+    return f"{x}時の{y}は{z}"
+print(sT("12","気温","22.4"))
 #08
+def cipher(x):
+    r=""
+    for w in x:
+        if w.islower():
+            r+=chr(219-ord(w))
+        else:
+            r+=w
+    return r
+x="abcdeABCED"
+a=cipher(x)#encode
+b=cipher(x)#decode
+if a==b:
+    print("nice")
 #09
-#10
+import random
+ran="I couldn’t believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
+def rdmsw(x):
+    r=""
+    List=x.split(" ")
+    for w in List:
+        if len(w)>4:
+            l=w[1:len(w)-1]
+            tmp=list(l)
+            random.shuffle(tmp)
+            tmp="".join(tmp)
+            l1=""
+            l1+=w[0]
+            l1+=tmp
+            l1+=w[-1]
+            r+=l1
+            r+=" "
+        else:
+            r+=w
+            r+=" "
+    return r
+
+print(rdmsw(ran))
+
+
+            
+
     

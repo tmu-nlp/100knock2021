@@ -1,3 +1,4 @@
-list = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-for a, b in enumerate(list):
-	print({a:b})
+I1 = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+enum = enumerate(I1)
+d = dict((i,j) for i,j in enum)
+print(d)

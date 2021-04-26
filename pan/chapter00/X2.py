@@ -27,4 +27,5 @@ x.extend(z)
 print(x)
 
 
+#【0，1，2，3，4，5】
 #list together

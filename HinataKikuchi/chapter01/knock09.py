@@ -19,3 +19,6 @@ def Typoglycemia(sentence : str):
 	# print(shuffled)
 
 print(Typoglycemia(sentence))
+
+str1 = 'Future, want to fly to the sky'
+print(Typoglycemia(str1))

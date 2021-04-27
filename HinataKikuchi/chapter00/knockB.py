@@ -3,3 +3,11 @@ output=[]
 for value in knockB:
 	output += value
 print(output)
+
+###ANSWER###
+output = sum(knockB, [])
+print(output)
+
+import itertools
+flatten_list = itertools.chain.from_iterable(knockB)
+print(flatten_list)

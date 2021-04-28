@@ -8,5 +8,4 @@ def current_tempre(x, y, z):
 
 
 if __name__ == '__main__':
-    print
-    current_tempre(12, '気温', 22.4)
+    print(current_tempre(12, '気温', 22.4))

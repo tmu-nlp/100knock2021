@@ -17,20 +17,14 @@ if __name__ == '__main__':
 # 　xとyを求める
 x = n_gram(str_a, 2)
 y = n_gram(str_b, 2)
-print
-'x = ', x
-print
-'y = ', y
+print('x = ', x)
+print('y = ', y)
 
 # 　xとyの和集合、積集合、差集合を求める
-print
-'x + y = ', x | y
-print
-'x & y = ', x & y
-print
-'x - y = ', x - y
-print
-'y - x = ', y - x
+print('x + y = ', x | y)
+print('x & y = ', x & y)
+print('x - y = ', x - y)
+print('y - x = ', y - x)
 
 
 # 'se'というbi-gramがXおよびYに含まれるかどうかを調べ
@@ -42,7 +36,5 @@ def is_in_bigram(str_set):
     return result
 
 
-print
-'\'se\' in x = ', is_in_bigram(x)
-print
-'\'se\' in y = ', is_in_bigram(y)
+print('\'se\' in x = ', is_in_bigram(x))
+print('\'se\' in y = ', is_in_bigram(y))

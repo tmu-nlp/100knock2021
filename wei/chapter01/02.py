@@ -3,10 +3,13 @@
 str1 = 'パトカー'
 str2 = 'タクシー'
 l = []
+str_l = []
 zipped = zip(str1,str2)     # 使用zip()函数将对象对应元素打包成一个个元组，返回由元组组成的列表。
 for c1,c2 in zipped:        # 遍历列表中每一个元组的每一个元素
-  str_l = l.append(c1+c2)   # 元素拼接成字符串后，追加到列表中
-print ''.join(str_l)        # 将列表转换为字符串
+  # print(type(c1+c2))
+  l.append(c1+c2)            # 元素拼接成字符串后，追加到列表中
+
+print(''.join(l))              # 将列表转换为字符串
 
 # zip()函数语法
 # zip([iterator,...])

@@ -21,5 +21,4 @@ def cipher(txt):
 
 if __name__ == '__main__':
     txt = 'Hello World! I love NLP.ハローワールド！'
-    print
-    cipher(txt)
+    print(cipher(txt))

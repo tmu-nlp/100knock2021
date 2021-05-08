@@ -1,0 +1,1 @@
+head -n "$1" data/popular-names.txt

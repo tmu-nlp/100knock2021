@@ -1,0 +1,1 @@
+sort -r -n -k 3 data/popular-names.txt >result/knock18_check.txt

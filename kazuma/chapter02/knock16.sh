@@ -1,0 +1,1 @@
+split -n 3 -d --additional-suffix=.txt data/popular-names.txt result/knock16_check

@@ -1,0 +1,1 @@
+split -n 3 --additional-suffix=.txt -d ./data/popular-names.txt ./result_sh/ans16.txt

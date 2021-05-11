@@ -14,3 +14,6 @@ for set_val in aggregation:
 ans = sorted(l, reverse=True)
 for val in ans:
 	print(val[0],val[1])
+
+###ANS###
+#default dictもあるよ！でもカウンタのがより完結！

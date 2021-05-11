@@ -8,3 +8,8 @@ with open(path1, mode='r') as file1, open(path2, mode='r') as file2:
 	with open(path, mode='w') as file:
 		for line1, line2 in zip(lines1, lines2):
 			file.write(line1.replace('\n','\t') + line2)
+
+###ANS###
+#内包表記について
+# https://www.python.org/dev/peps/pep-0289/
+#ジェネレーターを使うことでlistでなくても内包表記が使える

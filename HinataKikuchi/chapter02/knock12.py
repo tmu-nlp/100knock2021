@@ -8,3 +8,7 @@ with open(path, mode='r') as file:
 		for f in lines:
 			file1.write(f.split('\t')[0] + '\n')
 			file2.write(f.split('\t')[1] + '\n')
+
+###ANS###
+#ヨシッ!
+#cf. print(line[1], file=f)

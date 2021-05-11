@@ -26,7 +26,7 @@ split -l 500 ./popular-names.txt
 元のファイルを500行ごとに区切って新しいファイルに書き込む
 
 split -n 3 ./popular-names.txt
-元のファイルを3等分
+[-n]->個数　元のファイルを3等分
 
 17.
 cut -f 1 ./popular-names.txt | sort | uniq | wc -l

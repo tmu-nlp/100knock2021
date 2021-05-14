@@ -1,0 +1,1 @@
+sed 's/\t/ /g' ./data/popular-names.txt > ./result_sh/ans11.txt

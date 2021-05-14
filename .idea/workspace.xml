@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ecc5f96-9c47-4a92-8f79-eb74f3bc399f" name="Default Changelist" comment="homework push">
+    <list default="true" id="3ecc5f96-9c47-4a92-8f79-eb74f3bc399f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/knock10.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/knock11.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/knock12.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/knock13.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/knock14.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/knock15.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/knock16.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/knock17.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/knock18.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/knock19.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/popular-names.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wei/chapter02/test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wei/chapter01/02.py" beforeDir="false" afterPath="$PROJECT_DIR$/wei/chapter01/02.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wei/chapter01/03.py" beforeDir="false" afterPath="$PROJECT_DIR$/wei/chapter01/03.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wei/chapter01/04.py" beforeDir="false" afterPath="$PROJECT_DIR$/wei/chapter01/04.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wei/chapter01/05.py" beforeDir="false" afterPath="$PROJECT_DIR$/wei/chapter01/05.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wei/chapter01/06.py" beforeDir="false" afterPath="$PROJECT_DIR$/wei/chapter01/06.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wei/chapter01/07.py" beforeDir="false" afterPath="$PROJECT_DIR$/wei/chapter01/07.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wei/chapter01/08.py" beforeDir="false" afterPath="$PROJECT_DIR$/wei/chapter01/08.py" afterDir="false" />
     </list>
+    <ignored path="C:\Users\houjing.wei\SystemFiles\Desktop\Komachi_LAB\00_Courses\04_NLP100本ノック火5＠GoogleMTG\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +27,11 @@
     <session id="1111357094">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -33,74 +42,99 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="py" value="34" />
+          <entry key="py" value="48" />
+          <entry key="txt" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="34" />
+          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="Python" value="48" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="597" />
+          <entry key="Python Console" value="877" />
           <entry key="gitignore" value="2" />
-          <entry key="py" value="609" />
-          <entry key="txt" value="43" />
+          <entry key="py" value="3390" />
+          <entry key="txt" value="278" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="45" />
-          <entry key="Python" value="1206" />
+          <entry key="PLAIN_TEXT" value="280" />
+          <entry key="Python" value="4267" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wei/chapter01/05.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wei/chapter02/knock16.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wei/chapter01/06.py">
+        <entry file="file://$PROJECT_DIR$/wei/chapter02/knock17.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="215">
+              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wei/chapter01/07.py">
+        <entry file="file://$PROJECT_DIR$/wei/chapter02/knock19.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+            <state relative-caret-position="324">
+              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wei/chapter01/08.py">
+        <entry file="file://$PROJECT_DIR$/wei/chapter02/knock18.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="270">
+              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+              <folding>
+                <element signature="e#119#137#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wei/chapter01/09.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wei/chapter02/popular-names_split.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wei/chapter02/knock18.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+            <state relative-caret-position="-648" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wei/chapter02/test.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wei/chapter02/popular-names.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -115,7 +149,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -138,14 +171,27 @@
         <option value="$PROJECT_DIR$/wei/chapter01/04.py" />
         <option value="$PROJECT_DIR$/wei/chapter01/05.py" />
         <option value="$PROJECT_DIR$/wei/chapter01/06.py" />
+        <option value="$PROJECT_DIR$/wei/chapter02/test.py" />
+        <option value="$PROJECT_DIR$/wei/chapter02/knock10.py" />
+        <option value="$PROJECT_DIR$/wei/chapter02/popular-names.txt" />
+        <option value="$PROJECT_DIR$/wei/chapter02/knock11.py" />
+        <option value="$PROJECT_DIR$/wei/chapter02/knock12.py" />
+        <option value="$PROJECT_DIR$/wei/chapter02/knock13.py" />
+        <option value="$PROJECT_DIR$/wei/chapter02/test.txt" />
+        <option value="$PROJECT_DIR$/wei/chapter02/knock14.py" />
+        <option value="$PROJECT_DIR$/wei/chapter02/knock15.py" />
+        <option value="$PROJECT_DIR$/wei/chapter02/knock16.py" />
+        <option value="$PROJECT_DIR$/wei/chapter02/knock18.py" />
+        <option value="$PROJECT_DIR$/wei/chapter02/knock19.py" />
+        <option value="$PROJECT_DIR$/wei/chapter02/knock17.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="949" />
-    <option name="y" value="-11" />
-    <option name="width" value="983" />
-    <option name="height" value="1043" />
+    <option name="x" value="493" />
+    <option name="y" value="39" />
+    <option name="width" value="1215" />
+    <option name="height" value="1002" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -199,24 +245,13 @@
             <path>
               <item name="04_NLP100本ノック火5＠GoogleMTG" type="b2602c69:ProjectViewProjectNode" />
               <item name="04_NLP100本ノック火5＠GoogleMTG" type="462c0819:PsiDirectoryNode" />
-              <item name="pan" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="04_NLP100本ノック火5＠GoogleMTG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="04_NLP100本ノック火5＠GoogleMTG" type="462c0819:PsiDirectoryNode" />
-              <item name="pan" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter01" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="04_NLP100本ノック火5＠GoogleMTG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="04_NLP100本ノック火5＠GoogleMTG" type="462c0819:PsiDirectoryNode" />
               <item name="wei" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="04_NLP100本ノック火5＠GoogleMTG" type="b2602c69:ProjectViewProjectNode" />
               <item name="04_NLP100本ノック火5＠GoogleMTG" type="462c0819:PsiDirectoryNode" />
               <item name="wei" type="462c0819:PsiDirectoryNode" />
-              <item name="chapter01" type="462c0819:PsiDirectoryNode" />
+              <item name="chapter02" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -237,127 +272,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/progress.png</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/nakatsuji/chapter01/00.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/nakatsuji/chapter01/01.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/nakatsuji/chapter01/02.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/nakatsuji/chapter01/03.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/nakatsuji/chapter01/04.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/nakatsuji/chapter01/05.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/nakatsuji/chapter01/06.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/nakatsuji/chapter01/07.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/nakatsuji/chapter01/08.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/nakatsuji/chapter01/09.py</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="04_NLP100本ノック火5＠GoogleMTG" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="04_NLP100本ノック火5＠GoogleMTG" />
+      </console-settings>
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -371,8 +294,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.09">
-    <configuration name="05" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.knock17">
+    <configuration name="knock15" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="04_NLP100本ノック火5＠GoogleMTG" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -380,11 +303,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wei/chapter01" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wei/chapter02" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wei/chapter01/05.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wei/chapter02/knock15.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -393,7 +316,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="06" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="knock16" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="04_NLP100本ノック火5＠GoogleMTG" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -401,11 +324,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wei/chapter01" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wei/chapter02" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wei/chapter01/06.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wei/chapter02/knock16.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -414,7 +337,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="08" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="knock17" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="04_NLP100本ノック火5＠GoogleMTG" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -422,11 +345,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wei/chapter01" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wei/chapter02" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wei/chapter01/08.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wei/chapter02/knock17.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -435,7 +358,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="09" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="knock18" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="04_NLP100本ノック火5＠GoogleMTG" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -443,11 +366,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wei/chapter01" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wei/chapter02" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wei/chapter01/09.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wei/chapter02/knock18.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -456,7 +379,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="X5" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="knock19" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="04_NLP100本ノック火5＠GoogleMTG" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -464,11 +387,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pan/chapter01" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/wei/chapter02" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pan/chapter01/X5.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wei/chapter02/knock19.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -478,19 +401,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.05" />
-      <item itemvalue="Python.X5" />
-      <item itemvalue="Python.06" />
-      <item itemvalue="Python.08" />
-      <item itemvalue="Python.09" />
+      <item itemvalue="Python.knock15" />
+      <item itemvalue="Python.knock16" />
+      <item itemvalue="Python.knock18" />
+      <item itemvalue="Python.knock19" />
+      <item itemvalue="Python.knock17" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.09" />
-        <item itemvalue="Python.08" />
-        <item itemvalue="Python.06" />
-        <item itemvalue="Python.05" />
-        <item itemvalue="Python.X5" />
+        <item itemvalue="Python.knock17" />
+        <item itemvalue="Python.knock19" />
+        <item itemvalue="Python.knock18" />
+        <item itemvalue="Python.knock16" />
+        <item itemvalue="Python.knock15" />
       </list>
     </recent_temporary>
   </component>
@@ -526,27 +449,33 @@
       <option name="project" value="LOCAL" />
       <updated>1619510428418</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="homework reviewed push">
+      <created>1619602376204</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619602376204</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13257882" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17784964" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49960968" visible="true" weight="0.32713756" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32899627" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49636218" weight="0.4070632" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39962825" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49893618" weight="0.34285715" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32857144" />
-      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.4995958" weight="0.44237918" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5004042" side_tool="true" weight="0.464684" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49748743" visible="true" weight="0.3401487" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32527882" />
+      <window_info anchor="bottom" id="Python Console" order="9" sideWeight="0.4995958" weight="0.2732342" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50363785" side_tool="true" weight="0.27137548" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -578,7 +507,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
     <MESSAGE value="homework push" />
-    <option name="LAST_COMMIT_MESSAGE" value="homework push" />
+    <MESSAGE value="homework reviewed push" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework reviewed push" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -592,13 +522,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py" />
     <entry file="file://$PROJECT_DIR$/wei/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -639,20 +563,6 @@
     <entry file="file://$PROJECT_DIR$/pan/chapter00/X2.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/wei/chapter01/03.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wei/chapter01/04.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wei/chapter01/02.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -670,14 +580,28 @@
     <entry file="file://$PROJECT_DIR$/wei/chapter01/05.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter01/04.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter01/03.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wei/chapter01/06.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="18">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -690,15 +614,149 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wei/chapter01/08.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wei/chapter01/09.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock11.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/col2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/col1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="4" selection-start-column="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock13.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock12.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+          <folding>
+            <marker date="1620709577578" expanded="true" signature="138:332" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock10.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <marker date="1620664809022" expanded="true" signature="77:82" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock13.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <marker date="1620713051817" expanded="true" signature="143:148" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock14.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <marker date="1620715672546" expanded="true" signature="119:124" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock15.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/popular-names.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock18.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-648" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock17.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock19.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/popular-names_split.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock18.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding>
+            <element signature="e#119#137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wei/chapter02/knock16.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
     </entry>

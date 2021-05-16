@@ -1,0 +1,1 @@
+wc -l /mnt/c/Git/popular-names.txt

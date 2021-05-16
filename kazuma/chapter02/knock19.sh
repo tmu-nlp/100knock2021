@@ -1,0 +1,1 @@
+cut -f 1 data/popular-names.txt | sort | uniq -c |sort -n -r > result/knock19_check.txt

@@ -3,11 +3,12 @@ n=3
 count=2780#行数
 f=open('./popular-names.txt','r')
 
+#print(type(f.readlines()))
 '''
 for line in f:
     count+=1
-
 '''
+
 linenum=count//n#各ファイルの行数
 rest=count%n#余った行の数
 

@@ -6,3 +6,4 @@ with open('./jawiki-country.json','r',encoding='utf-8') as f:
         if line['title']=='イギリス':
             text=line['text']
     print(text)
+

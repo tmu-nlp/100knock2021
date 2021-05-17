@@ -6,5 +6,9 @@ for idx, val in enumerate(words):
 	if idx + 1 in list_idx:
 		ans[idx]=val[0]
 	else:
-		ans[idx]=val[1]
+		ans[idx]=val[:2]
 print(ans)
+
+###ANS###
+#スライス表記は右側の引数には入らず、一つ小さい整数までになるので注意。
+#この場合、elseのvalの配列[:2]は0文字目から1文字目となる。

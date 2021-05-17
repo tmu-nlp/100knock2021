@@ -12,3 +12,6 @@ def read_json(file_path):
 if __name__ == '__main__':
     file_path = '/users/kcnco/github/100knock2021/pan/chapter03/enwiki-country.json.gz'
     print(read_json(file_path))
+
+with open('/users/kcnco/github/100knock2021/pan/chapter03/x20.txt','w') as f_name:
+    f_name.write(text)

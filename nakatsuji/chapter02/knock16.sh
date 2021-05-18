@@ -1,0 +1,1 @@
+split -l 500 popular-names.txt sh/knock16-

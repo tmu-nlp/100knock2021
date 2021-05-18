@@ -4,8 +4,8 @@ import gzip
 filename = './data/jawiki-country.json'
 zip_filename = './data/jawiki-country.json.gz'
 
-with open(filename, 'r') as f:
-	obj = f.read()
+# with open(filename, 'r') as f:
+# 	obj = f.read()
 
 obj_zip = []
 with gzip.open(zip_filename, 'r') as f:
@@ -15,3 +15,4 @@ with gzip.open(zip_filename, 'r') as f:
 for i in obj_zip:
 	if i['title'] == 'イギリス':
 		ans = i
+

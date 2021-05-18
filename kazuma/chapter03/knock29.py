@@ -1,8 +1,6 @@
 import re
 import urllib.parse, urllib.request
 import json
-from PIL import Image
-import io
 
 def rm_internal_link(snt):
     return re.sub(r"\[\[.*?\|(.*)?\]\]",r"\1",snt)
@@ -17,7 +15,7 @@ def remover_knock27(snt):
 def remover_knock28(snt):
     return re.sub(r"<.*>",'',remover_knock27(snt))
 
-with open("data/US-text.txt", "r") as f:
+with open("data/UK-text.txt", "r") as f:
     dict1 = {}
     flag_start = False
     key = ""

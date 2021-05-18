@@ -1,5 +1,5 @@
 import re
-with open("data/US-text.txt", "r") as f:
+with open("data/UK-text.txt", "r") as f:
     dict1 = {}
     flag_start = False
     key = ""

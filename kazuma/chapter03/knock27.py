@@ -4,12 +4,12 @@ def rm_internal_link(snt):
 
 def rm_emp_mark(snt):
     return re.sub(r"\'",'',snt)
-    
+
 def remover_knock27(snt):
     if re.match(r"\[\[ファイル",snt):return snt
     else:return rm_internal_link(rm_emp_mark(snt))
 
-with open("data/US-text.txt", "r") as f:
+with open("data/UK-text.txt", "r") as f:
     dict1 = {}
     flag_start = False
     key = ""

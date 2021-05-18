@@ -1,6 +1,6 @@
 import re
 from pprint import pprint
-with open ("data/US-text.txt", "r") as f:
+with open ("data/UK-text.txt", "r") as f:
     for line in f:
         rf = re.findall(r"\[\[Category:(.*?)(?:\|.*)?\]\]",line)
         if rf:

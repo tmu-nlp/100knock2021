@@ -1,1 +1,3 @@
-split -l 500 popular-names.txt sh/knock16-
+#echo split_number:
+#read n
+split -l 463 popular-names.txt sh/knock16-

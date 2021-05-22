@@ -12,4 +12,7 @@ for line in ls:
 		line = re.sub(r"\[\[Category:", " ", line)
 		line = re.sub(r"(\|.*)*(\|\*)*(\]\])", " ", line)
 		print(line)
+
+#r"\[\[Category:(?P<Category_name>[^|]+)\|*(?P<Sortkey>.*)\]\]"
+#[[Category:カテゴリ名]] or [[Category:カテゴリ名|ソートキー]]
 	   

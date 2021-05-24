@@ -21,3 +21,5 @@ for content in templete_list[0].split('\n'):
 	if len(field_value) != 0 and len(field_name) != 0:
 		dict_info[field_name[0][1:-2]] = field_value[0][2:]
 
+###ANS###
+#ダブルコーテーションで囲めば、シングルコーテーションにエスケープつけなくて済むよ！

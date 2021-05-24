@@ -1,0 +1,1 @@
+wc -l /Users/michitaka/lab/NLP_100/chapter02/popular-names.txt > sh/knock10_sh.txt

@@ -1,0 +1,1 @@
+paste py/col[1-2].txt > sh/knock13.txt

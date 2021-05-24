@@ -3,15 +3,15 @@
 確認にはsortコマンドを用いよ（この問題はコマンドで実行した時の結果と合わなくてもよい） '''
 
 import numpy as np
-import pprint
+
 
 
 def sort_by_col(pathfile, n):
-    lines = [tuple(line.strip().split()) for line in open(pathfile, encoding='utf-8')]
+    lines = [tuple(line.strip().split()) for line in open(pathfile, encoding='utf-8')]   # [('Mary', 'F', '7065', '1880'),...]
     # print(lines)
-    t = np.dtype([('KEN', str, 20), ('SHI', str, 20), ('temp', float), ('date', str, 20)])
+    t = np.dtype([('Name', str, 20), ('Gender', str, 20), ('Numbers', int), ('Birth', str, 20)])
     a = np.array(lines, dtype=t)
-    b = a.tolist()
+    b = a.tolist()      # [('Mary', 'F', 7065, '1880'),...]
     # print(b)
     result = sorted(b, key=lambda x: (x[n], x[0]), reverse=True)
     return result
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     sorted_names_list = sort_by_col(path, 2)
     sorted_list = np.array(sorted_names_list)
     # print(sorted_list)
-    with open('./knock18.txt', 'w', encoding='utf-8') as f:
+    with open('./knock18.txt', 'w+', encoding='utf-8') as f:
         for i in sorted_list:
             n_line = ' '.join(list(i))
             f.write(n_line + '\n')

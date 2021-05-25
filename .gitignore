@@ -127,7 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.idea/
 
-# dot files
-.vscode
-.idea
+# VSCode
+.vscode/

@@ -1,0 +1,38 @@
+10.
+ls <filename>
+行数　単語数　文字数
+wc -l 行数だけを返す
+
+11. 
+expand <filename>
+
+12.
+cut -f 1 ./popular-names.txt > ./col1.txt
+cut -f 2 ./popular-names.txt > ./col2.txt
+
+13.
+paste ./col1.txt ./col2.txt
+
+14.
+head -n 8 ./popular-names.txt
+最初の８行
+
+15.
+tail -n 8 ./popular-names.txt
+最後の８行
+
+16.
+split -l 500 ./popular-names.txt
+元のファイルを500行ごとに区切って新しいファイルに書き込む
+
+split -n 3 ./popular-names.txt
+[-n]->個数　元のファイルを3等分
+
+17.
+cut -f 1 ./popular-names.txt | sort | uniq | wc -l
+
+18.
+cat ./popular-names.txt | sort -rnk 3
+
+19.
+cut -f 1 ./popular-names.txt | sort | uniq -c | sort -rn

@@ -1,0 +1,1 @@
+cat popular-names.txt | tr "\t" " " > sh/knock11_sh.txt

@@ -33,7 +33,7 @@ def mecab(file):
                 dicts = []
 
 if __name__ == '__main__':
-    file = "/users/kcnco/github/100knock2021/pan/chapter04/neko.txt.mecab"
+    file = '/users/kcnco/github/100knock2021/pan/chapter04/neko.txt.mecab'
     #一文ずつ辞書のリストを作成
     lines = mecab(file)
     t = 0

@@ -15,4 +15,4 @@ with open(analized_text_path, mode='r+') as file:
 			analized_dict['pos1'] = tmp_list[1]
 		analized_dicts.append(analized_dict)
 
-# print(analized_dicts[5])
+###ANS###

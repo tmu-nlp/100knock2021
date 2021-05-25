@@ -24,3 +24,9 @@ for word in text_with_cat[:10]:
 
 plt.bar(key_, val_)
 plt.savefig('knock37.jpg')
+
+###これのがいいかも？###
+#https://qiita.com/yniji/items/3fac25c2ffa316990d0c
+#mac ですが
+# plt.rcParams["font.family"] = "Hiragino sans"
+# を入れたらできました というご意見も

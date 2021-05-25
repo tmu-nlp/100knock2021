@@ -11,3 +11,6 @@ plt.plot(key_, val_)
 plt.xscale('log')
 plt.yscale('log')
 plt.savefig('./knock39.jpg')
+
+###ANS###
+#zipで書いてあげるとl.6からのfor文はよりきれいになる。

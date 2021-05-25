@@ -16,6 +16,6 @@ def get_v_base():
             break
     return(V_base)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     file = '/users/kcnco/github/100knock2021/pan/chapter04/neko.txt.mecab'
     print(get_v_base())

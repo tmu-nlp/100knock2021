@@ -12,16 +12,16 @@
 import MeCab
 import re
 
-def mecab_result(filename):
-    with open(filename, 'r') as neko,open('./data/neko.txt.mecab','w+') as outfile:
-        mecab = MeCab.Tagger('')
-        for line in neko:
-            result = mecab.parse(line)
-            print(result)
-            outfile.write(result)
+# def mecab_result(filename):
+#     with open(filename, 'r') as neko,open('./data/neko.txt.mecab','w+') as outfile:
+#         mecab = MeCab.Tagger('')
+#         for line in neko:
+#             result = mecab.parse(line)
+#             print(result)
+#             outfile.write(result)
 
 def load_macab(mecabfile):
-    with open(mecabfile,'r') as mecabneko:
+    with open(mecabfile,'r',encoding='utf-8') as mecabneko:
         morphenes = []
         line = mecabneko.readline()
         while(line):
@@ -42,8 +42,8 @@ def load_macab(mecabfile):
                 morphenes = []
 
 if __name__ == '__main__':
-    filepath = './data/neko.txt'
-    mecabfile = mecab_result(filepath)
+    # filepath = './data/neko.txt'
+    mecabfile = './data/neko.txt.mecab'
     nekodata = load_macab(mecabfile)
     i = 0
     for line in nekodata:

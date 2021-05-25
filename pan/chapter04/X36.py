@@ -7,7 +7,7 @@ import japanize_matplotlib
 from X30 import mecab
 from collections import Counter
 
-def describe_top10(table)->"None":
+def describe_top10(table)->'None':
     sample = []
     data = []
     for i in range(10):

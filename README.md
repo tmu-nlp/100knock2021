@@ -1,3 +1,5 @@
+[![Update-Progress](https://github.com/tmu-nlp/100knock2021/actions/workflows/update-progress.yml/badge.svg)](https://github.com/tmu-nlp/100knock2021/actions/workflows/update-progress.yml)
+
 # 100knock2021
 
 小町研2021年度新入生向け勉強会として、言語処理100本ノックに取り組みます。  

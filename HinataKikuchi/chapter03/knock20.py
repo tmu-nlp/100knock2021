@@ -1,11 +1,11 @@
 import json
 import gzip
 
-filename = './data/jawiki-country.json'
+# filename = './data/jawiki-country.json'
 zip_filename = './data/jawiki-country.json.gz'
 
-with open(filename, 'r') as f:
-	obj = f.read()
+# with open(filename, 'r') as f:
+# 	obj = f.read()
 
 obj_zip = []
 with gzip.open(zip_filename, 'r') as f:

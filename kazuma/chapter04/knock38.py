@@ -9,6 +9,7 @@ for line in neko:
     for mor in line:
         if mor["pos"] != "記号":
             d1[mor["base"]] += 1
-d1 = sorted(d1.items(),key=lambda x:x[1],reverse=True)
-plt.hist([i[1] for i in d1])
+l1 = sorted(d1.items(),key=lambda x:x[1],reverse=True)
+# plt.hist([i[1] for i in l1],range = [0,20])
+plt.hist([i[1] for i in l1])
 plt.show()

@@ -11,11 +11,12 @@ def mecab(file):
         dicts = []
         #readline()を使って、一行ずつ読み込む
         line = data.readline()
-        while(line): 
+        #while(line): 
+        for line in data: #
             #re.split()を使って、lineは各要素に区切られる
             result = re.split(r'[,\t\n]', line)
             result = result[:-1]
-            line = data.readline()
+            #line = data.readline()
             #最後のEOS\nの処理
             if len(result) < 2:
                 continue

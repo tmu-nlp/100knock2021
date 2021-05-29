@@ -1,4 +1,3 @@
-#####
 #出現頻度が高い10語とその出現頻度をグラフ（例えば棒グラフなど）で表示せよ．
 
 import numpy as np
@@ -7,7 +6,7 @@ import japanize_matplotlib
 from X30 import mecab
 from collections import Counter
 
-def describe_top10(table)->"None":
+def describe_top10(table)->'None':
     sample = []
     data = []
     for i in range(10):

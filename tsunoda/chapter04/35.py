@@ -17,16 +17,15 @@ with open(filename, mode='r', encoding="utf-8") as f:
       sentences.append(morphs)
       morphs = []
 
-from collections import defaultdict
+from collections import defaultdict 
 
 ans = defaultdict(int)
 for sentence in sentences:
   for morph in sentence:
     if morph['pos'] != '記号':
-      ans[morph['base']] += 1 #単語数の更新
+      ans[morph['base']] += 1  # 単語数の更新(初登場の単語であれば1をセット)
 ans = sorted(ans.items(), key=lambda x: x[1], reverse=True)
 
-#確認
+# 確認
 for w in ans[:10]:
   print(w)
-  

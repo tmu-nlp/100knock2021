@@ -17,21 +17,22 @@ class User:
 def get_progress() -> List[User]:
     cur = Path(".")
     users = list(
-        filter(lambda x: x.is_dir() and x.name not in IGNORE, sorted(cur.iterdir()))
+        filter(lambda x: x.is_dir() and not is_ignored(x.name), sorted(cur.iterdir()))
     )
 
     progress = list()
     # user ごとの progress を取得する
     for user in users:
         u = User(user.name, user)
-        for chap, max_cnt in zip(range(CHAPTER), QUESTIONS):
+        for chap, max_cnt in enumerate(QUESTIONS):
             # user/chapterXX の path (章だけ 1-indexed なので num+1)
             chapter_path = Path(user / f"chapter{chap+1:02d}")
-            # user/chapterXX に含まれる .py ファイルと .sh ファイルの数をカウント
-            py_file_cnt = len(list(chapter_path.glob("*.py")))
-            sh_file_cnt = len(list(chapter_path.glob("*.sh")))
+            # user/chapterXX に含まれる .py, .sh, .ipynb ファイルの数をカウント
+            cnt = 0
+            for ext in ["py", "sh", "ipynb"]:
+                cnt += len(list(chapter_path.glob(f"*.{ext}")))
             # 問題数は max_cnt が上限で、それ以上のファイル数が含まれる場合は max_cnt にする
-            solved_cnt = min(py_file_cnt + sh_file_cnt, max_cnt)
+            solved_cnt = min(cnt, max_cnt)
             u.progress[chap] = solved_cnt
         progress.append(u)
 
@@ -81,8 +82,10 @@ def main():
 if __name__ == "__main__":
     sns.set()
     # 章数と各章の問題数
-    CHAPTER, QUESTIONS = 10, [10] * 10
+    CHAPTER = 10
+    QUESTIONS = [10] * CHAPTER
     # progress bar に表示しないディレクトリ名
-    IGNORE = [".git", ".github", ".automation", "kiyuna", "tomoshige"]
+    IGNORE = ["kiyuna", "tomoshige"]
+    is_ignored = lambda name: name in IGNORE or name.startswith(".")
 
     main()

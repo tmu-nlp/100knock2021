@@ -26,4 +26,9 @@ class Chunk:
 			self.phrase += morph.surface
 	def print_self(self):
 		print(self.phrase, end =' ')
+	def check_pos(self, pos:str) -> int:
+		for morph in self.morphs:
+			if morph.pos == pos:
+				return 1
+		return 0
 

@@ -1,0 +1,4 @@
+digraph {
+	node [fontname="MS Gothic" shape=box]
+	"人工知能" -> "人工知能"
+}

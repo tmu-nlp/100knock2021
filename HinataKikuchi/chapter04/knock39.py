@@ -11,3 +11,8 @@ plt.plot(key_, val_)
 plt.xscale('log')
 plt.yscale('log')
 plt.savefig('./knock39.jpg')
+
+###ANS###
+# zipで書いてあげるとl.6からのfor文はよりきれいになる。
+# 一度全部格納したものを、dict列として保存しておくと良い。
+# もちろんジェネレータでもよき。練習になる

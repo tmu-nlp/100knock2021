@@ -7,3 +7,8 @@ for i in range(1, len(d) - 1):
 			A_s_B.append(d[i-1]['surface'] + d[i]['surface'] + d[i+1]['surface'])
 
 print(A_s_B)
+
+###ANS###
+#mac ですが
+# plt.rcParams["font.family"] = "Hiragino sans"
+# を入れたらできました

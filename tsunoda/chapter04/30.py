@@ -1,4 +1,3 @@
-
 filename = 'data/neko.txt.mecab'
 
 sentences = []
@@ -18,5 +17,5 @@ with open(filename, mode='r', encoding="utf-8") as f:
       morphs = []
 
 # 確認
-for morph in sentences[2]:
+for morph in sentences[5]:
   print(morph)

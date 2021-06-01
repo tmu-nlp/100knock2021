@@ -3,7 +3,7 @@
 #さらに，係り受け解析の結果（ai.ja.txt.parsed）を読み込み，各文をMorphオブジェクトのリストとして表現し，冒頭の説明文の形態素列を表示せよ
 import re
 
-# Morphクラス
+#Morphクラス
 class Morph(object):   
     def __init__(self, line):
         self.surface = line[0]
@@ -11,7 +11,7 @@ class Morph(object):
         self.pos = line[1]
         self.pos1 = line[2]
 
-# Morphオブジェクトのリスト（文単位）を返す関数
+#Morphオブジェクトのリスト（文単位）を返す関数
 def analyze_morph(fname):    
     with open(fname, 'r', encoding='utf-8') as f:
         text = f.read().splitlines()
@@ -30,11 +30,11 @@ def analyze_morph(fname):
                                 
     return morphs
 
-# 3文目のMorphオブジェクトのリスト
+#Morphオブジェクトのリスト
 ai_morphs = analyze_morph('/users/kcnco/github/100knock2021/pan/chapter05/ai.ja1.txt.parsed')[0]
 print('surface\tbase\tpos\tpos1')
 
-# Morphオブジェクトごとに
+#Morphオブジェクトごとに
 for ai_morph in ai_morphs:
     print('{}\t{}\t{}\t{}'.format(ai_morph.surface,     #メンバ変数を表示
                                   ai_morph.base, 

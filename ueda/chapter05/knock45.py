@@ -1,7 +1,7 @@
 from knock41 import load_chunk
 
 
-with open('c:\Git\case_pattern.txt', 'w', encoding="utf-8") as f:
+with open('/Users/Naoya/Downloads/case.txt', 'w', encoding="utf-8") as f:
     for line in load_chunk():
         srcs = []
         base = []

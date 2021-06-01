@@ -1,7 +1,8 @@
 from itertools import combinations
 import re
 from knock41 import load_chunk
-f = open(r'c:\Git\nounphrase_path.txt', 'w', encoding="utf-8")
+
+f = open(r'/Users/Naoya/Downloads/nounphrase.txt', 'w', encoding="utf-8")
 for line in load_chunk():
     noun_list = []
     for l in line:

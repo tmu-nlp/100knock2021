@@ -1,57 +1,42 @@
 #形態素を表すクラスMorphを実装せよ
 #このクラスは表層形（surface），基本形（base），品詞（pos），品詞細分類1（pos1）をメンバ変数に持つこととする
 #さらに，係り受け解析の結果（ai.ja.txt.parsed）を読み込み，各文をMorphオブジェクトのリストとして表現し，冒頭の説明文の形態素列を表示せよ
+import re
 
-
-class Morph():
+# Morphクラス
+class Morph(object):   
     def __init__(self, line):
-        line = line.split('\t')
-        if line[0][0] == '*':
-            self.meta = line[0].strip().split()
-            self.EOS = False
-        elif len(line) > 1:
-            attr = line[1].split(',')
-            self.surface = line[0]
-            self.base = attr[-3]
-            self.pos = attr[0]
-            self.pos1 = attr[1]
-            self.EOS = False
-            self.meta = False
-        else:
-            self.EOS = True
-            self.meta = False
+        self.surface = line[0]
+        self.base = line[7]
+        self.pos = line[1]
+        self.pos1 = line[2]
 
-    def show(self):
-        if self.EOS:
-            return 'EOS'
-        elif not self.meta:
-            return self.surface
-        else:
-            return self.meta
-
-def morph2sents(listcabocha):
-    sents = []
-    sent = []
-    for elem in listcabocha:
-        if not elem.EOS:
-            sent.append(elem)
-        else:
-            if sent != []:
-                sents.append(sent)
-            sent = []
-    return sents
-
-
-if __name__ == '__main__':
-    with open('/users/kcnco/github/100knock2021/pan/chapter05/ai.ja1.txt.parsed','r') as ai:
-        ai = ai.readlines()
-
-    ai_morphs = []
-    for i in range(len(ai)):
-        ai_morphs.append(Morph(ai[i]))
+# Morphオブジェクトのリスト（文単位）を返す関数
+def analyze_morph(fname):    
+    with open(fname, 'r', encoding='utf-8') as f:
+        text = f.read().splitlines()
+        text = [re.split('[\t, ]', t) for t in text]    #「\t」、「,」（形態素解析の行）、空白（係り受け解析の行）で分割
+        morphs = []                                     #Morphオブジェクトのリスト（文単位）
+        temp = []                                       #オブジェクトを文単位でまとめるため一時保管
         
-    sents = morph2sents(ai_morphs)
+        for line in text:                               #係り受け解析の行を除外
+            if line[0] == '*' and len(line) == 5:
+                continue
+            elif line[0] != 'EOS':                      #形態素解析の行
+                temp.append(Morph(line))   
+            else:                                       #EOSの行（１文の終わり） 
+                morphs.append(temp)
+                temp = []
+                                
+    return morphs
 
-    for sent in sents:
-        for morph in sent:
-            print(morph.show())
+# 3文目のMorphオブジェクトのリスト
+ai_morphs = analyze_morph('/users/kcnco/github/100knock2021/pan/chapter05/ai.ja1.txt.parsed')[0]
+print('surface\tbase\tpos\tpos1')
+
+# Morphオブジェクトごとに
+for ai_morph in ai_morphs:
+    print('{}\t{}\t{}\t{}'.format(ai_morph.surface,     #メンバ変数を表示
+                                  ai_morph.base, 
+                                  ai_morph.pos, 
+                                  ai_morph.pos1))

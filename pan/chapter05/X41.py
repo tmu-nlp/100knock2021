@@ -2,9 +2,9 @@
 #このクラスは形態素（Morphオブジェクト）のリスト（morphs），係り先文節インデックス番号（dst），係り元文節インデックス番号のリスト（srcs）をメンバ変数に持つこととする
 #さらに，入力テキストの係り受け解析結果を読み込み，１文をChunkオブジェクトのリストとして表現し，冒頭の説明文の文節の文字列と係り先を表示せよ
 import re
-from X401 import Morph
+from X40 import Morph
 
-#Chunkクラス
+#Chunkクラスを作成。問題文で指定されたメンバ変数の他に、文節単位で文字列を表示するためのインスタンスを追加。
 class Chunk(object):
     def __init__(self, line):      
         self.morphs = []                                #形態素（Morphオブジェクト）のリスト
@@ -40,21 +40,21 @@ def analyze_chunk(fname):
 
     return chunks
 
-#Chunkオブジェクトのリスト
+#関数を実行して、文節の文字列と係り先、そして確認のために係り元も表示
 ai_chunks = analyze_chunk('/users/kcnco/github/100knock2021/pan/chapter05/ai.ja1.txt.parsed')[0]
 print('surface\tdst\tsrcs')
 
-# Chunkオブジェクトごとに
 for ai_chunk in ai_chunks:
     print('{}\t{}\t{}'.format(ai_chunk.join_surface(),   #文節の文字列、係り先、係り元を表示
                               ai_chunk.dst, 
                               ai_chunk.srcs))
-print('surface\tbase\tpos\tpos1')
 
-# Chunkオブジェクトごとに
+'''
+print('surface\tbase\tpos\tpos1')
 for ai_chunk in ai_chunks:
     for ai_morph in ai_chunk.morphs:                     #Morphオブジェクトごとに
         print('{}\t{}\t{}\t{}'.format(ai_morph.surface,  #メンバ変数を表示
                                       ai_morph.base, 
                                       ai_morph.pos, 
                                       ai_morph.pos1))
+'''

@@ -18,7 +18,7 @@ file_path = './ai.ja.txt.parsed'
 Chunk_list = []
 phrases = []
 symbol = '+*#'
-with open(file_path) as f:
+with open(file_path, encoding='utf-8') as f:
 	morph_list = []
 	dst_list = []
 	lines = f.read().split('\n')

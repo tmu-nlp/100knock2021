@@ -1,36 +1,35 @@
 #####
 #与えられた文の係り受け木を有向グラフとして可視化せよ．可視化には，Graphviz等を用いるとよい．
-from graphviz import Digraph
-from X43 import analyze_chunk
+from collections import defaultdict
+from k40 import Morph, morph2sents
+from k41 import Chunk, morph2chunk
 
-def make_graph_graphviz(nodes):
-    #有向グラフのオブジェクトを作成（pngファイルで保存）
-    G = Digraph(format='png')
-    #ノードの形を円形に指定
-    G.attr('node', shape='circle')
+if __name__ == "__main__":
+    with open("/users/kcnco/github/100knock2021/pan/chapter05/ai.ja1.txt.parsed", "r") as ai:
+        ai = ai.readlines()
 
-    for node in nodes:
-        #ノードに係り元を追加
-        G.node(node[0])
-        #ノードに係り先を追加
-        G.node(node[1])
-        #係り元→係り先のエッジを追加
-        G.edge(node[0], node[1])
+    ai_morphs = []
+    for i in range(len(ai)):
+        ai_morphs.append(Morph(ai[i]))
 
-    #graph_44というファイル名で保存し、pngファイルを表示
-    G.render('graph_44', view=True)
+    sent = morph2sents(ai_morphs)[32]  #任意の文章No.を指定
+    
+    #for sent in sents:
+    chunks = morph2chunk(sent)
+    sen = []
+    f = open("graph.gv", "w", encoding="UTF-8")
+    f.write("digraph graph_name {"+ "\n")
+    f.write("node [fontname = \"MS Gothic\"];"+ "\n")
+    for i in range(len(chunks)):
+        goto = chunks[i].dst
+        sen.append(chunks[i].show_only_words())
+        if goto != None:    
+            f.write(chunks[i].show_only_words())
+            f.write(" -> "+ chunks[goto].show_only_words())
+            goto = chunks[goto].dst
+            f.write(";" + "\n")
+    f.write("{rank=same; " +", ".join(sen)+";}}")
+    f.close()
 
-ai_chunks = analyze_chunk('/users/kcnco/github/100knock2021/pan/chapter05/ai.ja1.txt.parsed')[0]
-# （係り元, 係り先）のタプルが入るリスト
-nodes = []
-
-for ai_chunk in ai_chunks:
-    if ai_chunk.dst != -1:
-        s = ai_chunk.join_surface_womark()
-        d = ai_chunks[ai_chunk.dst].join_surface_womark()
-
-        if s != '' and d != '':
-            nodes.append((s, d))
-
-# nodesを入れて関数を実行
-make_graph_graphviz(nodes)
+    #brew install graphviz
+    #dot -Tpng graph.gv > dependecy.png

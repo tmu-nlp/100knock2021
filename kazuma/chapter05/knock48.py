@@ -32,10 +32,10 @@ def get_path(chunk,sentence,list1):
     if chunk.dst == "-1":
         return list1+["".join([mor.surface for mor in chunk.morphs if mor.pos != "記号"])]
     else:
-            return get_path(sentence[int(chunk.dst)], sentence, list1+["".join([mor.surface for mor in chunk.morphs if mor.pos != "記号"])])
+        return get_path(sentence[int(chunk.dst)], sentence, list1+["".join([mor.surface for mor in chunk.morphs if mor.pos != "記号"])])
 
 sentences = get_chunk_sentences()
-f = open("knock46_output.txt", "w") # インデント減らしたくなったからwith open やめてみた。
+f = open("knock46_output.txt", "w") # インデント減らしたくなったからwith open やめてみた。with 使った方が安全。
 for sentence in sentences:
     for chunk in sentence:
         if "名詞" in [mor.pos for mor in chunk.morphs]:

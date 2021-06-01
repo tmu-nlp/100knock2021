@@ -9,7 +9,7 @@ class Morph:
         return 'surface:{}\tbase:{}\tpos:{}\tpos1:{}'.format(self.surface, self.base, self.pos, self.pos1)
 
 def load_parsed():
-     with open(r'c:\Git\ai.ja.txt.parsed', encoding="utf-8") as f:
+     with open(r'/Users/Naoya/Downloads/ai.ja.txt.parsed', encoding="utf-8") as f:
          morphs = []
          for line in f:
             col = line.split('\t')

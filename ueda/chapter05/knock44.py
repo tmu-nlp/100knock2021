@@ -3,8 +3,10 @@ from knock41 import load_chunk
 
 digraph = Digraph(format='png')
 for line in load_chunk():
-    lchunks = list(line.values())
-    for l in lchunks:
-        if int(l.dst) != -1:
-            diagram.edge(''.join(list(a.surface for a in l.morphs if a.pos != '記号')), ''.join(list(a.surface for a in line[l.dst].morphs if a.pos != '記号')))
-digraph.render('tree')
+    if line.keys() != 2:
+        continue
+    for l in line:
+        if int(line[l].dst) != -1:
+            digraph.edge(''.join(list(a.surface for a in line[l].morphs if a.pos != '記号')), ''.join(list(a.surface for a in line[line[l].dst].morphs if a.pos != '記号')))
+    digraph.render('/Users/Naoya/100knock2021/ueda/chapter05/tree')
+    

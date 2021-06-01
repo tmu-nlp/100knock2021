@@ -10,7 +10,7 @@ class Chunk:
         return 'surface:{}\tdst:{}\tsrcs:{}'.format(''.join(list(a.surface for a in self.morphs)), self.dst, self.srcs)
 
 def load_chunk():
-    with open(r'c:\Git\ai.ja.txt.parsed', encoding="utf-8") as f:
+    with open(r'/Users/Naoya/Downloads/ai.ja.txt.parsed', encoding="utf-8") as f:
         chunks = {}
         srcs_dicts = {}
         for line in f:

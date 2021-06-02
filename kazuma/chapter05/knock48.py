@@ -27,30 +27,18 @@ KNPを係り受け解析に用いた場合，次のような出力が得られ�
 '''
 
 from knock41 import get_chunk_sentences
-from collections import defaultdict
 
-def seeker(chunk,sentence,list1,flag):
+def get_path(chunk,sentence,list1):
     if chunk.dst == "-1":
         return list1+["".join([mor.surface for mor in chunk.morphs if mor.pos != "記号"])]
-
     else:
-        if flag:
-            if "名詞" not in [mor.pos for mor in sentence[int(chunk.dst)].morphs]:
-                return seeker(sentence[int(chunk.dst)], sentence, list1+["".join([mor.surface for mor in chunk.morphs if mor.pos != "記号"])], False)
-            return seeker(sentence[int(chunk.dst)], sentence, list1+["".join([mor.surface for mor in chunk.morphs if mor.pos != "記号"])], True)
-        else:
-            if "名詞" not in [mor.pos for mor in sentence[int(chunk.dst)].morphs]:
-                flag = False
-                return seeker(sentence[int(chunk.dst)], sentence, list1, False)
-            flag = True
-            return seeker(sentence[int(chunk.dst)], sentence, list1, True)
-        
+        return get_path(sentence[int(chunk.dst)], sentence, list1+["".join([mor.surface for mor in chunk.morphs if mor.pos != "記号"])])
 
 sentences = get_chunk_sentences()
-f = open("knock46_output.txt", "w") # インデント減らしたくなったからwith open やめてみた。
+f = open("knock46_output.txt", "w") # インデント減らしたくなったからwith open やめてみた。with 使った方が安全。
 for sentence in sentences:
     for chunk in sentence:
         if "名詞" in [mor.pos for mor in chunk.morphs]:
-            list1 = seeker(chunk, sentence, [], True)
-            if list1 and len(list1) != 1:
-                print(" -> ".join(list1))
+            list1 = get_path(chunk, sentence, [])
+            print(" -> ".join(list1))
+f.close()

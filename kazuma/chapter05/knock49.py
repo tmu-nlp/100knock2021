@@ -45,14 +45,14 @@ Xで | Yを | 作り出した。
 Xと -> いう -> Yを
 
 '''
+
+# なんか名詞句オンリーでやってるけど、先頭だけ名詞句で、それ以外は名詞句以外でいいのよね。。。
 from knock41 import get_chunk_sentences
 
 def get_path(chunk, sentence, list1):    
     if chunk.dst == "-1":
         return list1
     else:
-        if "名詞" not in [mor.pos for mor in sentence[int(chunk.dst)].morphs]:
-            return get_path(sentence[int(chunk.dst)], sentence, list1)
         return get_path(sentence[int(chunk.dst)], sentence, list1 + [int(chunk.dst)])
 
 def noun_changer(str1, chunk):

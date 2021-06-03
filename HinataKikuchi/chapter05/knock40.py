@@ -30,3 +30,8 @@ with open(file_path) as f:
 
 for phrase in phrases[0]:
 	print(phrase.surface, end='')
+
+
+###ANS###
+#クラスを作りたくない場合は以下のように定義することができる
+#Morph = namedtuple("Morph", ("surface", "base", "pos", "pos1"))

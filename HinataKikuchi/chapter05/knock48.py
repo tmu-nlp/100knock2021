@@ -13,3 +13,8 @@ def get_noun_path(phrase):
 # get_noun_path(phrases[1])
 for phrase in phrases:
 	get_noun_path(phrase)
+
+###ANS###
+#withを使う必要性について
+#with はexitとかで呼ばれてる？
+#withあるとちゃんと占めてくれマウス

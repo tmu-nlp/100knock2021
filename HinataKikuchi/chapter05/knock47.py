@@ -19,3 +19,8 @@ def print_case_phrase(phrase):
 # print_case_phrase(phrases[1])
 for phrase in phrases:
 	print_case_phrase(phrase)
+
+###ANS###
+#from itertools import islice
+#ジェネレータのスライスができるー！
+#islice(f(), s, t)

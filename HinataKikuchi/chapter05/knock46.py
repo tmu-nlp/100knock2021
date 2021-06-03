@@ -14,6 +14,6 @@ def print_case_phrase(phrase):
 					print(phrase[idx].phrase, end = '\t')
 			print()
 
-# for phrase in phrases:
-# 	print_case_phrase(phrase)
+for phrase in phrases:
+	print_case_phrase(phrase)
 #

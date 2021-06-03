@@ -26,13 +26,20 @@ class Chunk:
 	dst : int
 	srcs : list
 	phrase : str
+	base_phrase : str
 	def __init__(self, morphs, dst, srcs):
 		self.morphs = morphs
 		self.dst = dst
 		self.srcs = srcs
 		self.phrase = ''
+		self.base_phrase = ''
 		for morph in self.morphs:
 			self.phrase += morph.surface
+		for morph in self.morphs:
+			if morph.pos == '動詞':
+				self.base_phrase += morph.base
+			else:
+				self.base_phrase += morph.surface
 	def print_self(self):
 		print(self.phrase, end =' ')
 	def check_pos(self, pos:str) -> int:

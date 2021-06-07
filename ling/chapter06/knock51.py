@@ -1,4 +1,4 @@
-#contrast [title] [category]
+#extract [title] [category]
 def contrast_feature(file_path,feature_file_name):
     with open(file_path,'r',encoding='utf-8') as f,open(feature_file_name,'w',encoding='utf-8') as a:
         for line in f:

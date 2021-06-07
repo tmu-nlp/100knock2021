@@ -25,8 +25,8 @@ df=df.loc[df['PUBLISHER'].isin(['Reuters', 'Huffington Post', 'Businessweek', 'C
 train_test_split(arrays,test_size=None,shuffle=True,random_state=None,stratify=None)
 @para
 test_size:If float, should be between 0.0 and 1.0 and represent the proportion of the dataset to include in the test split. If int, represents the absolute number of test samples.
-shuffle:shuffle the data before splitting
-random_state: if this is not None,no matter how many times of shuffle, the result will be the same
+shuffle:Shuffle the data before splitting
+random_state: If this is not None,no matter how many times of shuffle, the result will be the same
 stratify: If not None, data is split in a stratified fashion, using this as the class labels.
 '''
 train,valid_test = train_test_split(df, test_size=0.2, shuffle=True, random_state=123, stratify=df['CATEGORY'])
@@ -37,9 +37,11 @@ train.to_csv('./_train.txt', sep='\t', index=False)
 valid.to_csv('./_valid.txt', sep='\t', index=False)
 test.to_csv('./_test.txt', sep='\t', index=False)
 
+'''
 print('学習データ')
 print(train['CATEGORY'].value_counts())
 print('検証データ')
 print(valid['CATEGORY'].value_counts())
 print('評価データ')
 print(test['CATEGORY'].value_counts())
+'''

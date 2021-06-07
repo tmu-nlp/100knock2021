@@ -2,7 +2,7 @@
 係り元の文節と係り先の文節のテキストをタブ区切り形式ですべて抽出せよ．
 ただし，句読点などの記号は出力しないようにせよ．'''
 
-from knock40 import Morph
+
 from knock41 import Chunk, parse_cabocha
 
 
@@ -13,8 +13,10 @@ if __name__ == '__main__':
     blocks = [parse_cabocha(block) for block in blocks]
 
 
-    for b in blocks:
-        for m in b:
+    for b in blocks:                # 各文集合の1文ごと
+        for m in b:                 # 1文の文節ごと
             if int(m.dst) > -1:
                 print(''.join([mo.surface if mo.pos != '記号' else '' for mo in m.morphs]),
                       ''.join([mo.surface if mo.pos != '記号' else '' for mo in b[int(m.dst)].morphs]), sep = '\t')
+
+                # 記号を排除して、文節表層形の

@@ -12,15 +12,15 @@
 import MeCab
 import re
 
-# def mecab_result(filename):
-#     with open(filename, 'r') as neko,open('./data/neko.txt.mecab','w+') as outfile:
-#         mecab = MeCab.Tagger('')
-#         for line in neko:
-#             result = mecab.parse(line)
-#             print(result)
-#             outfile.write(result)
+def mecab_result(filename):
+    with open(filename, 'r') as neko,open('./data/neko.txt.mecab_1','w+') as outfile:
+        mecab = MeCab.Tagger()
+        for line in neko:
+            result = mecab.parse(line)
+            print(result)
+            outfile.write(result)
 
-def load_macab(mecabfile):
+def load_mecabf(mecabfile):
     with open(mecabfile,'r',encoding='utf-8') as mecabneko:
         morphenes = []
         line = mecabneko.readline()
@@ -28,7 +28,7 @@ def load_macab(mecabfile):
             result = re.split('[,\t\n]',line)
             result = result[:-1]
             line = mecabneko.readline()
-            if len(result)<2:
+            if len(result) < 2:
                 continue
             morphene = {
                 'surface': result[0],
@@ -40,11 +40,14 @@ def load_macab(mecabfile):
             if result[0] == '。':
                 yield morphenes
                 morphenes = []
+    return morphenes
+
 
 if __name__ == '__main__':
-    # filepath = './data/neko.txt'
-    mecabfile = './data/neko.txt.mecab'
-    nekodata = load_macab(mecabfile)
+    filepath = './data/neko.txt'
+    mecabfile = mecab_result(filepath)
+    # mecabfile = './data/neko.txt.mecab'
+    nekodata = load_mecabf(mecabfile)
     i = 0
     for line in nekodata:
         print(line)

@@ -48,20 +48,21 @@ df = df.loc[df['PUBLISHER'].astype(str).isin(['Reuters', 'Huffington Post', 'Bus
 stratify Objectを利用して、指定したカラムの構成比が分割後の各データで等しくなるように分割される.
 分類の目的変数であるCATEGORYを指定し、データごとに偏りないようにする.
 '''
-train, valid_test = train_test_split(df, test_size=0.2, shuffle=True, random_state=123, stratify=df['CATEGORY'])
-valid, test = train_test_split(valid_test, test_size=0.5, shuffle=True, random_state=123, stratify=valid_test['CATEGORY'])
+if __name__ == '__main__':
+    train, valid_test = train_test_split(df, test_size=0.2, shuffle=True, random_state=123, stratify=df['CATEGORY'])
+    valid, test = train_test_split(valid_test, test_size=0.5, shuffle=True, random_state=123, stratify=valid_test['CATEGORY'])
 
 # データの保存
-train.to_csv('./train.txt', sep='\t', index=False)
-valid.to_csv('./valid.txt', sep='\t', index=False)
-test.to_csv('./test.txt', sep='\t', index=False)
+    train.to_csv('./train.txt', sep='\t', index=False)
+    valid.to_csv('./valid.txt', sep='\t', index=False)
+    test.to_csv('./test.txt', sep='\t', index=False)
 
 # 事例数の確認
-print('[train_data]')
-print(train['CATEGORY'].value_counts())
-print('[valid_data]')
-print(valid['CATEGORY'].value_counts())
-print('[test_data]')
-print(test['CATEGORY'].value_counts())
+    print('[train_data]')
+    print(train['CATEGORY'].value_counts())
+    print('[valid_data]')
+    print(valid['CATEGORY'].value_counts())
+    print('[test_data]')
+    print(test['CATEGORY'].value_counts())
 
 

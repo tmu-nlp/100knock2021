@@ -1,4 +1,41 @@
 from sklearn.feature_extraction.text import CountVectorizer
+from nltk.corpus import stopwords
+import nltk
+
+def create_features_file3():
+    nltk.download('stopwords')
+    stop_words = stopwords.words('english')
+    with open("data/train.txt", "r") as f1,\
+         open("data/valid.txt", "r") as f2,\
+         open("data/test.txt", "r") as f3,\
+         open("data/train.feature.txt", "w") as f4,\
+         open("data/valid.feature.txt", "w") as f5,\
+         open("data/test.feature.txt", "w") as f6:
+        for line in f1:
+            line_list = line.strip("\n").split("\t")
+            word_list = line_list[0].translate(str.maketrans({",": None, ".":None, ";":None, ":":None})).split(" ")
+            for word in word_list:
+                if word in stop_words:
+                    word_list.remove(word)
+            sent = " ".join(word_list)
+            f4.write(f"{sent}\n")
+        for line in f2:
+            line_list = line.strip("\n").split("\t")
+            word_list = line_list[0].translate(str.maketrans({",": None, ".":None, ";":None, ":":None})).split(" ")
+            for word in word_list:
+                if word in stop_words:
+                    word_list.remove(word)
+            sent = " ".join(word_list)
+            f5.write(f"{sent}\n")
+        for line in f3:
+            line_list = line.strip("\n").split("\t")
+            word_list = line_list[0].translate(str.maketrans({",": None, ".":None, ";":None, ":":None})).split(" ")
+            for word in word_list:
+                if word in stop_words:
+                    word_list.remove(word)
+            sent = " ".join(word_list)
+            f6.write(f"{sent}\n")
+            
 
 def create_features_file():
     with open("data/train.txt", "r") as f1,\
@@ -59,6 +96,6 @@ def create_features_file2():
             f6.write(f"{str1}\n")
         print(cnt)
 if __name__ == "__main__":
-    create_features_file()
+    create_features_file3()
 
 

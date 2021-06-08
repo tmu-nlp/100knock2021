@@ -23,7 +23,7 @@ def preprocessing(text):
 def df_pre(train, valid, test):
     # データの再結合
     df = pd.concat([train, valid, test], axis=0)
-    df.reset_index(drop=True, inplace=True)
+    df.reset_index(drop=True, inplace=True)      # indexを振りなおす
 
 # 前処理の実施
     df['TITLE'] = df['TITLE'].map(lambda x: preprocessing(x))
@@ -35,6 +35,7 @@ def train_seg(df_pre, train, valid):
     # データの分割
     train_valid = df_pre[:len(train) + len(valid)]
     # TfidfVectorizer
+    # ngram_rangeでTF-IDFを計算する単語の長さを指定
     vec_tfidf = TfidfVectorizer(min_df=10, ngram_range=(1,2))
     # ベクトル化
     X_train_valid = vec_tfidf.fit_transform(train_valid['TITLE'])
@@ -68,7 +69,7 @@ def test_seg(df_pre, train, valid):
     # TfidfVectorizer
     vec_tfidf = TfidfVectorizer(min_df=10, ngram_range=(1, 2))
     # ベクトル化
-    vec_tfidf.fit_transform(train_valid['TITLE'])
+    vec_tfidf.fit_transform(train_valid['TITLE'])  # testの情報は使わない
     X_test = vec_tfidf.transform(test['TITLE'])
 
     # ベクトルをデータフレームに変換

@@ -18,6 +18,7 @@ if __name__ == '__main__':
                                    stratify=valid_test['CATEGORY'])
     df_pre = df_pre(train, valid, test)
     X_train = train_seg(df_pre, train, valid)
+    # モデルの学習
     lg = LogisticRegression(random_state=123, max_iter=10000, solver='lbfgs', multi_class='auto')
     lgfit = lg.fit(X_train, train['CATEGORY'])
     print(lgfit)

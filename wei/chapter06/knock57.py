@@ -15,7 +15,7 @@ from IPython import display
 
 def sorted_by_weight(lg):
 
-    for c, coef in zip(lg.classes_, lg.coef_):
+    for c, coef in zip(lg.classes_, lg.coef_):       # インスタンス名.coef_ で、パラメータ（重み）を取得する
         print(f'【カテゴリ】{c}')
         best10 = pd.DataFrame(features[np.argsort(coef)[::-1][:10]], columns=['重要度上位'], index=index).T
         worst10 = pd.DataFrame(features[np.argsort(coef)[:10]], columns=['重要度下位'], index=index).T
@@ -24,11 +24,14 @@ def sorted_by_weight(lg):
 
 
 if __name__ == '__main__':
+    # データの読み込み
     infile = './data/NewsAggregatorDataset/newsCorpora_re.csv'
     df = load_df(infile)
+    # データの分割
     train, valid_test = train_test_split(df, test_size=0.2, shuffle=True, random_state=123, stratify=df['CATEGORY'])
     valid, test = train_test_split(valid_test, test_size=0.5, shuffle=True, random_state=123,
                                    stratify=valid_test['CATEGORY'])
+    # データを前処理した後、データを再結合
     df_pre = df_pre(train, valid, test)
     X_train = train_seg(df_pre, train, valid)
 

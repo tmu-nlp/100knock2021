@@ -70,4 +70,25 @@ if __name__ == '__main__':
     print('[test_data]')
     print(test['CATEGORY'].value_counts())
 
+'''
+[train_data]
+b    4501
+e    4235
+t    1220
+m     728
+Name: CATEGORY, dtype: int64
+[valid_data]
+b    563
+e    529
+t    153
+m     91
+Name: CATEGORY, dtype: int64
+[test_data]
+b    563
+e    530
+t    152
+m     91
+Name: CATEGORY, dtype: int64
+'''
+
 

@@ -11,12 +11,11 @@ sep : [str] Delimiter
 df=pd.read_csv('./NewsAggregatorDataset/newsCorpora.csv', header=None, sep='\t', names=['ID', 'TITLE', 'URL', 'PUBLISHER', 'CATEGORY', 'STORY', 'HOSTNAME', 'TIMESTAMP'])
 #print(df)
 
-
-
 '''
 df.loc(condition,columns)
 Extract 2 columns of the line which the publisher is one of the elements in the list
 '''
+
 df=df.loc[df['PUBLISHER'].isin(['Reuters', 'Huffington Post', 'Businessweek', 'Contactmusic.com', 'Daily Mail']), ['TITLE', 'CATEGORY']]
 
 

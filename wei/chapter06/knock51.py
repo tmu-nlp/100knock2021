@@ -1,5 +1,5 @@
 '''
-[task description]
+[task description]特徴量の抽出
 特徴量を抽出し，それぞれtrain.feature.txt，valid.feature.txt，test.feature.txtというファイル名で保存せよ
 記事の見出しを単語列に変換したものが最低限のベースラインとなる
 '''""
@@ -63,11 +63,13 @@ def valid_seg(df_pre, train, valid):
 
 def test_seg(df_pre, train, valid):
     # データの分割
+    train_valid = df_pre[:len(train) + len(valid)]
     test = df_pre[len(train) + len(valid):]
     # TfidfVectorizer
     vec_tfidf = TfidfVectorizer(min_df=10, ngram_range=(1, 2))
     # ベクトル化
-    X_test = vec_tfidf.fit_transform(test['TITLE'])
+    vec_tfidf.fit_transform(train_valid['TITLE'])
+    X_test = vec_tfidf.transform(test['TITLE'])
 
     # ベクトルをデータフレームに変換
     X_test = pd.DataFrame(X_test.toarray(), columns=vec_tfidf.get_feature_names())
@@ -90,4 +92,4 @@ if __name__ == '__main__':
     X_valid.to_csv('./X_valid.txt', sep='\t', index=False)
     X_test.to_csv('./X_test.txt', sep='\t', index=False)
 
-    print(X_train.head())
+    print(X_test.head())

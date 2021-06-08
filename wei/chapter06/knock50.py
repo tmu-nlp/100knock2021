@@ -1,5 +1,5 @@
 ""'''
-[task description]
+[task description]データの入手・整形
 News Aggregator Data Setを以下の要領で
 学習データ（train.txt），検証データ（valid.txt），評価データ（test.txt）を作成せよ.
 1. 情報源（publisher）が”Reuters”, “Huffington Post”, “Businessweek”, “Contactmusic.com”, “Daily Mail”の事例（記事）のみを抽出する.

@@ -1,20 +1,18 @@
 ""'''
-[task description]予測
-52で学習したロジスティック回帰モデルを用い，
-与えられた記事見出しからカテゴリとその予測確率を計算するプログラムを実装せよ．
+[task description]混同行列の作成
+52で学習したロジスティック回帰モデルの混同行列（confusion matrix）を，
+学習データおよび評価データ上で作成せよ．
 '''
 
-import numpy as np
+
 from knock50 import load_df
 from sklearn.model_selection import train_test_split
 from knock51 import df_pre, train_seg, test_seg
+from knock53 import score_lg
 from sklearn.linear_model import LogisticRegression
-
-
-
-def score_lg(lg, X):
-    return [np.max(lg.predict_proba(X), axis=1), lg.predict(X)]
-
+from sklearn.metrics import confusion_matrix
+import seaborn
+import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
     infile = './data/NewsAggregatorDataset/newsCorpora_re.csv'
@@ -29,17 +27,28 @@ if __name__ == '__main__':
 
     lgfitT = lg.fit(X_train, train['CATEGORY'])
     train_pred = score_lg(lgfitT, X_train)
-    print(train_pred)
+    train_cm = confusion_matrix(train['CATEGORY'], train_pred[1])
+    print(train_cm)
+    seaborn.heatmap(train_cm, annot=True, cmap='Blues')
+    plt.show()
+
 
     lgfitTe = lg.fit(X_test, test['CATEGORY'])
     test_pred = score_lg(lgfitTe, X_test)
-    print(test_pred)
+    test_cm = confusion_matrix(test['CATEGORY'], test_pred[1])
+    print(test_cm)
+    seaborn.heatmap(test_cm, annot=True, cmap='Reds')
+    plt.show()
 
 '''
-train_pred
-[array([0.84030117, 0.67899853, 0.55636978, ..., 0.86051001, 0.61358001,
-       0.90829256]), array(['b', 't', 'm', ..., 'b', 'm', 'e'], dtype=object)]
-test_pred
-[array([0.68223717, 0.65320246, 0.85278413, ..., 0.87394799, 0.79795111,
-       0.39329039]), array(['e', 'e', 'b', ..., 'e', 'e', 't'], dtype=object)]
-       '''
+train_cm
+[[4344   93    8   56]
+ [  52 4173    2    8]
+ [  96  125  494   13]
+ [ 192  133    7  888]]
+ test_cm
+[[556   6   0   1]
+ [  3 527   0   0]
+ [ 20  37  34   0]
+ [ 52  23   0  77]]
+'''

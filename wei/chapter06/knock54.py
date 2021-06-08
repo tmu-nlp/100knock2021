@@ -1,20 +1,15 @@
 ""'''
-[task description]予測
-52で学習したロジスティック回帰モデルを用い，
-与えられた記事見出しからカテゴリとその予測確率を計算するプログラムを実装せよ．
+[task description]正解率の計測
+52で学習したロジスティック回帰モデルの正解率を，
+学習データおよび評価データ上で計測せよ
 '''
 
-import numpy as np
+from sklearn.metrics import accuracy_score
 from knock50 import load_df
 from sklearn.model_selection import train_test_split
 from knock51 import df_pre, train_seg, test_seg
+from knock53 import score_lg
 from sklearn.linear_model import LogisticRegression
-
-
-
-def score_lg(lg, X):
-    return [np.max(lg.predict_proba(X), axis=1), lg.predict(X)]
-
 
 if __name__ == '__main__':
     infile = './data/NewsAggregatorDataset/newsCorpora_re.csv'
@@ -29,17 +24,15 @@ if __name__ == '__main__':
 
     lgfitT = lg.fit(X_train, train['CATEGORY'])
     train_pred = score_lg(lgfitT, X_train)
-    print(train_pred)
+    train_accuracy = accuracy_score(train['CATEGORY'], train_pred[1])
+    print(f'正解率(学習データ)　:　{train_accuracy:.3f}')
 
     lgfitTe = lg.fit(X_test, test['CATEGORY'])
     test_pred = score_lg(lgfitTe, X_test)
-    print(test_pred)
+    test_accuracy = accuracy_score(test['CATEGORY'], test_pred[1])
+    print(f'正解率(評価データ)　:　{test_accuracy:.3f}')
 
 '''
-train_pred
-[array([0.84030117, 0.67899853, 0.55636978, ..., 0.86051001, 0.61358001,
-       0.90829256]), array(['b', 't', 'm', ..., 'b', 'm', 'e'], dtype=object)]
-test_pred
-[array([0.68223717, 0.65320246, 0.85278413, ..., 0.87394799, 0.79795111,
-       0.39329039]), array(['e', 'e', 'b', ..., 'e', 'e', 't'], dtype=object)]
-       '''
+正解率(学習データ)　:　0.927
+正解率(評価データ)　:　0.894
+'''

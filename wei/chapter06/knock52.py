@@ -1,5 +1,5 @@
 ""'''
-[task description]
+[task description]学習
 51で構築した学習データを用いて，ロジスティック回帰モデルを学習せよ．
 '''
 
@@ -9,10 +9,6 @@ from sklearn.model_selection import train_test_split
 from knock51 import df_pre, train_seg
 
 
-
-# def lg(train_feature, train_categ):
-#     lg = LogisticRegression(random_state=123, max_iter=10000, solver='lbfgs', multi_class='auto')
-#     return lg.fit(train_feature,train_categ)
 
 if __name__ == '__main__':
     infile = './data/NewsAggregatorDataset/newsCorpora_re.csv'

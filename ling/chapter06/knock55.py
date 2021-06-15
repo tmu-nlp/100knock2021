@@ -19,3 +19,6 @@ print(train_cm)
 test_cm = confusion_matrix(test['CATEGORY'], test_pred[1])
 print('評価データの混同行列：\n')
 print(test_cm)
+
+
+#venv of sklearn: "/opt/homebrew/Caskroom/miniforge/base/envs/sk-env"

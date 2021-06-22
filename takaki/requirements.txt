@@ -1,4 +1,3 @@
-bhtsne
 gensim
 ipython
 jupyter

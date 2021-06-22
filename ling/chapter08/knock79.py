@@ -44,6 +44,10 @@ def loss_accuracy(model,criterion,loader):
     total=0
     correct=0
 
+    '''
+    explained the function of no_grad()
+    https://blog.csdn.net/sazass/article/details/116668755
+    '''
     with torch.no_grad():
         for inputs,labels in loader:
             outputs=model(inputs)

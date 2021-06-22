@@ -53,7 +53,8 @@ DS_train = Newdataset(X_train,y_train)
 DS_valid = Newdataset(X_valid,y_valid)
 DS_test = Newdataset(X_test,y_test)
 
-#create dataloader,DL for DataLoader
+#create dataloader,DL for DataLoader,from dataset pick up some samples, the number of samples
+#is determined by batch_size
 DL_train = DataLoader(DS_train,batch_size=1,shuffle=True)
 DL_valid = DataLoader(DS_valid,batch_size=len(DS_valid),shuffle=False)
 DL_test = DataLoader(DS_test,batch_size=len(DS_test),shuffle=False)

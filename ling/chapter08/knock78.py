@@ -5,6 +5,12 @@ import torch.nn as nn
 import tqdm
 import time
 
+
+'''
+no cuda
+no gpu support for m1 mac
+executed in google colab
+'''
 class Net(nn.Module):
     def __init__(self,input_size,output_size):
         super().__init__()

@@ -1,9 +1,7 @@
 import numpy as np
-from knock71 import Net
 import torch
 from torch.utils.data import Dataset,DataLoader
 import torch.nn as nn
-import tqdm
 import time
 
 class Net(nn.Module):
@@ -19,7 +17,12 @@ class Net(nn.Module):
         x=self.l1(x)
         return x
 
-
+'''
+create new dataset,combine the data and labels
+@para
+X: data
+y: label for each data
+'''
 class Newdataset(Dataset):
     def __init__(self,X,y):
         self.X=X
@@ -30,7 +33,9 @@ class Newdataset(Dataset):
     def __getitem__(self,idx):
         return [self.X[idx],self.y[idx]]
 
-
+'''
+calculate and return loss(mean) and accuracy
+'''
 def loss_accuracy(model,criterion,loader):
     model.eval()
     loss=0.0
@@ -41,23 +46,36 @@ def loss_accuracy(model,criterion,loader):
         for inputs,labels in loader:
             outputs=model(inputs)
             loss+=criterion(outputs,labels).item()
+            #get the predicted results by trained model
             pred=torch.argmax(outputs,dim=-1)
             total+=len(inputs)
+            #if predicted value = label, count it as correct
             correct+=(pred==labels).sum().item()
     return loss/len(loader),correct/total
 
+
+'''
+@para
+DS_train
+DS_valid
+batch_size: used in dataloader
+model
+criterion
+optimizer
+num_epochs
+'''
+
 def train_model(DS_train,DS_valid,batch_size,model,criterion,optimizer,num_epochs):
+    # pick up samples from dataset
     DL_train=DataLoader(DS_train,batch_size=batch_size,shuffle=True)
     DL_valid=DataLoader(DS_valid,batch_size=len(DS_valid),shuffle=False)
 
-    loss_train_valid=[]
-    acc_train_valid=[]
-
-    
     for epoch in range(num_epochs):
     #set the module in training mode 
         start=time.time()
         model.train()
+
+        #calculate loss of each sample
         for i ,(inputs,labels) in enumerate(DL_train):
             optimizer.zero_grad()
             outputs=model(inputs)
@@ -68,13 +86,10 @@ def train_model(DS_train,DS_valid,batch_size,model,criterion,optimizer,num_epoch
         loss_train,acc_train=loss_accuracy(model,criterion,DL_train)
         loss_valid,acc_valid=loss_accuracy(model,criterion,DL_valid)
 
-        loss_train_valid.append([loss_train,loss_valid])
-        acc_train_valid.append([acc_train,acc_valid])
-
         #torch.save({'epoch': epoch, 'model_state_dict': model.state_dict(), 'optimizer_state_dict': optimizer.state_dict()}, f'checkpoint{epoch + 1}.pt')
         end=time.time()
         print(f'epoch: {epoch + 1}, loss_train: {loss_train:.4f}, loss_valid: {loss_valid:.4f},loss_valid: {loss_valid:.4f},accuracy_valid: {acc_valid:.4f},{(end - start):.4f}sec')
-    return {'loss of train and valid:':loss_train_valid,'accuracy of train & valid':acc_train_valid}
+    #return {'loss of train and valid:':loss_train_valid,'accuracy of train & valid':acc_train_valid}
 
 #read data 
 X_train=torch.load("./X_train.pt")
@@ -84,7 +99,6 @@ y_test=torch.load("./y_test.pt")
 X_valid=torch.load("./X_valid.pt")
 y_valid=torch.load("./y_valid.pt")
 
-#DS for Dataset
 DS_train = Newdataset(X_train,y_train)
 DS_valid = Newdataset(X_valid,y_valid)
 DS_test = Newdataset(X_test,y_test)
@@ -97,6 +111,7 @@ optimizer = torch.optim.SGD(model.parameters(),lr=1e-1)
 
 num_epochs=5
 
+#batch_size=1,2,4,8...1024
 for batch_size in [2**i for i in range(11)]:
     print('batch size: '+str(batch_size))
-    log=train_model(DS_train,DS_valid,batch_size,model,criterion,optimizer,num_epochs)
+    train_model(DS_train,DS_valid,batch_size,model,criterion,optimizer,num_epochs)

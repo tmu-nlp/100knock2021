@@ -18,7 +18,7 @@ def create_features_file3():
                 if word in stop_words:
                     word_list.remove(word)
             sent = " ".join(word_list)
-            f4.write(f"{sent}\n")
+            f4.write(f"{sent}\t{line_list[1]}\n")
         for line in f2:
             line_list = line.strip("\n").split("\t")
             word_list = line_list[0].translate(str.maketrans({",": None, ".":None, ";":None, ":":None})).split(" ")
@@ -26,7 +26,7 @@ def create_features_file3():
                 if word in stop_words:
                     word_list.remove(word)
             sent = " ".join(word_list)
-            f5.write(f"{sent}\n")
+            f5.write(f"{sent}\t{line_list[1]}\n")
         for line in f3:
             line_list = line.strip("\n").split("\t")
             word_list = line_list[0].translate(str.maketrans({",": None, ".":None, ";":None, ":":None})).split(" ")
@@ -34,7 +34,7 @@ def create_features_file3():
                 if word in stop_words:
                     word_list.remove(word)
             sent = " ".join(word_list)
-            f6.write(f"{sent}\n")
+            f6.write(f"{sent}\t{line_list[1]}\n")
             
 
 def create_features_file():

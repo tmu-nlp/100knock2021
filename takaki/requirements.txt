@@ -1,0 +1,12 @@
+bhtsne
+gensim
+ipython
+jupyter
+matplotlib
+nose
+numpy
+pandas
+python-Levenshtein
+scikit-learn
+scipy
+sympy

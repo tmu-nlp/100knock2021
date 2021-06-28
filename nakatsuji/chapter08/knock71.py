@@ -1,0 +1,5 @@
+X_train = torch.load(path + 'X_train.pt')
+W = torch.rand(300, 4)
+softmax = torch.nn.Softmax(dim=1)
+print(softmax(torch.matmul(X_train[:1], W)))
+print(softmax(torch.matmul(X_train[:4], W)))

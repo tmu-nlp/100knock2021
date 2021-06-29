@@ -31,4 +31,4 @@ def knock74():
     print(accuracy(pred_valid, y_valid))
 
 if __name__ == "__main__":
-    knock74()
+    knock74() 

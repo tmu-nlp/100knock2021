@@ -78,4 +78,4 @@ def knock76():
     plt.show()
 
 if __name__ == "__main__":
-    knock76()
+    knock76() 

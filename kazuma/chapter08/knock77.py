@@ -10,7 +10,7 @@ import time
 def calculate_loss_sum(loader, model):
     loss_fn = torch.nn.CrossEntropyLoss()
     loss_sum = 0
-    cnt = 0
+    cnt = 0 
     for xx, yy in loader:
         y_pred = model(xx)
         loss = loss_fn(y_pred, yy)

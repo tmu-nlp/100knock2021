@@ -7,7 +7,7 @@ from knock74 import accuracy
 import time
 
 class MLP(torch.nn.Module):
-    def __init__(self):
+    def __init__(self): 
         super().__init__()
         self.net = torch.nn.Sequential(
             torch.nn.Linear(300, 50),

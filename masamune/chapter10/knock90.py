@@ -6,7 +6,6 @@ rm kftt-data-1.0.tar.gz
 # preprocess
 mkdir data-bin
 mkdir data-bin/kftt.ja-en
-
 TEXT=../kftt-data-1.0/data/tok
 fairseq-preprocess --source-lang ja --target-lang en \
     --trainpref $TEXT/kyoto-train \

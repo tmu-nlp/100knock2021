@@ -29,7 +29,7 @@ fairseq-train data-bin/kftt-bpe.ja-en \
     --eval-bleu-remove-bpe \
     --eval-bleu-print-samples \
     --best-checkpoint-metric bleu --maximize-best-checkpoint-metric"
-
+ 
 #翻訳
 fairseq-interactive data-bin/kftt-bpe.ja-en \
     --path checkpoints/kftt-bpe.ja-en/checkpoint_best.pt \

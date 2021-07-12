@@ -14,7 +14,7 @@ class TransForm(Form):
 def index():
     form = TransForm(request.form)
     return render_template('form.html', form=form)
-
+ 
 @app.route('/trans', methods=['POST'])
 def trans():
     form = TransForm(request.form)

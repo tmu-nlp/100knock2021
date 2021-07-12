@@ -25,7 +25,7 @@ fairseq-interactive data-bin/kftt.ja-en/ \
     < ../kftt-data-1.0/data/tok/kyoto-test.ja \
     | grep '^H' | cut -f3 > 97/5e-3.out
 
-＃評価
+＃評価 
 fairseq-score --sys 97/5e-3.out --ref ../kftt-data-1.0/data/tok/kyoto-test.en
 
 #lr=5e-3

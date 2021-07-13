@@ -4,6 +4,7 @@ mkdir checkpoints/kftt.ja-en
 '''
 #train
 import os
+
 os.system(
 "fairseq-train data-bin/kftt.ja-en \
     --save-dir checkpoints/kftt.ja-en/ \

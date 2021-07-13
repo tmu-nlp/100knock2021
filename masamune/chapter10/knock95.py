@@ -2,6 +2,7 @@
 #前処理
 mkdir data-bin/kftt-bpe.ja-en
 mkdir ../kftt-data-1.0/data/bpe
+
 BPETEXT = '../kftt-data-1.0/data/bpe'
 !fairseq-preprocess --source-lang ja --target-lang en \
     --trainpref $BPETEXT/kyoto-train \

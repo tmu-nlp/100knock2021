@@ -31,4 +31,4 @@
 ["Namespace(ignore_case=False, order=4, ref='kftt-data-1.0/data/tok/kyoto-dev.en', sacrebleu=False, sentence_bleu=False, sys='94/beam10.out')",
  'BLEU4 = 9.63, 35.8/13.3/6.0/3.0 (BP=1.000, ratio=1.149, syslen=27943, reflen=24309)']
 
-''' 
+'''

@@ -19,4 +19,4 @@ fairseq-train data-bin/kftt-bpe.ja-en \
     --best-checkpoint-metric bleu --maximize-best-checkpoint-metric
 
 tensorboard --logdir ./checkpoints/kftt-bpe-tensorboard.ja-en/
-''' 
+'''

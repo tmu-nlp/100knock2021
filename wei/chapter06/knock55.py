@@ -7,7 +7,7 @@
 
 from knock50 import load_df
 from sklearn.model_selection import train_test_split
-from knock51 import df_pre, train_seg, test_seg
+from knock51 import df_pre, seg
 from knock53 import score_lg
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
@@ -21,8 +21,8 @@ if __name__ == '__main__':
     valid, test = train_test_split(valid_test, test_size=0.5, shuffle=True, random_state=123,
                                    stratify=valid_test['CATEGORY'])
     df_pre = df_pre(train, valid, test)
-    X_train = train_seg(df_pre, train, valid)
-    X_test = test_seg(df_pre, train, valid)
+    X_train = seg(df_pre, train, valid)[0]
+    X_test = seg(df_pre, train, valid)[2]
     lg = LogisticRegression(random_state=123, max_iter=10000, solver='lbfgs', multi_class='auto')
 
     lgfitT = lg.fit(X_train, train['CATEGORY'])

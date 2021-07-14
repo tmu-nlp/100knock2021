@@ -18,14 +18,6 @@ CATEGORY	News category
             e= entertainment, m = health)
 STORY		Alphanumeric ID of the cluster that includes news about the same story
 
-[file_2 description]
-filename:2pageSessions.csv
-FORMAT: STORY \t HOSTNAME \t CATEGORY \t URL
-where:
-STORY		Alphanumeric ID of the cluster that includes news about the same story
-CATEGORY	News category
-            (b = business, t = science and technology,
-            e = entertainment, m = health)
 '''
 import pandas as pd
 from sklearn.model_selection import train_test_split     # data分割
@@ -35,7 +27,7 @@ def load_df(infile):
     df = pd.read_csv(infile, header=None, sep='\t',
                      names=['ID', 'TITLE', 'URL', 'PUBLISHER', 'CATEGORY', 'STORY', 'HOSTNAME', 'TIMESTAMP'])
     # print(df.info())
-    # データの抽出
+    # データの抽出　->  .loc(x_label, y_label)で索引
     df = df.loc[df['PUBLISHER'].astype(str).isin(['Reuters', 'Huffington Post', 'Businessweek', 'Contactmusic.com', 'Daily Mail']),
             ['TITLE', 'CATEGORY']]
     return df

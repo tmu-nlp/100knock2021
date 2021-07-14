@@ -7,7 +7,7 @@
 from sklearn.metrics import accuracy_score
 from knock50 import load_df
 from sklearn.model_selection import train_test_split
-from knock51 import df_pre, train_seg, valid_seg, test_seg
+from knock51 import df_pre, seg
 from knock53 import score_lg
 from sklearn.linear_model import LogisticRegression
 from tqdm import tqdm
@@ -21,9 +21,9 @@ if __name__ == '__main__':
     valid, test = train_test_split(valid_test, test_size=0.5, shuffle=True, random_state=123,
                                    stratify=valid_test['CATEGORY'])
     df_pre = df_pre(train, valid, test)
-    X_train = train_seg(df_pre, train, valid)
-    X_valid = valid_seg(df_pre, train, valid)
-    X_test = test_seg(df_pre, train, valid)
+    X_train = seg(df_pre, train, valid)[0]
+    X_valid = seg(df_pre, train, valid)[1]
+    X_test = seg(df_pre, train, valid)[2]
     result = []
     for C in tqdm(np.logspace(-5,4,10, base=10)):
         lg = LogisticRegression(random_state=123, max_iter=10000, solver='lbfgs', multi_class='auto', C=C)
@@ -51,7 +51,7 @@ if __name__ == '__main__':
 正解率(評価データ)　:　1.000
 '''
     result = np.array(result).T
-    print(result)
+    # print(result)
     plt.plot(result[0], result[1], label='train')
     plt.plot(result[0], result[2], label='valid')
     plt.plot(result[0], result[3], label='test')

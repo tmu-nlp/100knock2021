@@ -25,57 +25,31 @@ def df_pre(train, valid, test):
     df = pd.concat([train, valid, test], axis=0)
     df.reset_index(drop=True, inplace=True)      # indexを振りなおす
 
-# 前処理の実施
+    # 前処理の実施
     df['TITLE'] = df['TITLE'].map(lambda x: preprocessing(x))
     return df
 
 
-def train_seg(df_pre, train, valid):
+def seg(df_pre, train, valid):
 
-    # データの分割
-    train_valid = df_pre[:len(train) + len(valid)]
-    # TfidfVectorizer
-    # ngram_rangeでTF-IDFを計算する単語の長さを指定
-    vec_tfidf = TfidfVectorizer(min_df=10, ngram_range=(1,2))
-    # ベクトル化
-    X_train_valid = vec_tfidf.fit_transform(train_valid['TITLE'])
-    # ベクトルをデータフレームに変換
-    X_train_valid = pd.DataFrame(X_train_valid.toarray(), columns=vec_tfidf.get_feature_names())
-    # データの分割
-    X_train = X_train_valid[:len(train)]
-
-    return X_train
-
-
-def valid_seg(df_pre, train, valid):
-    # データの分割
-    train_valid = df_pre[:len(train) + len(valid)]
-    # TfidfVectorizer
-    vec_tfidf = TfidfVectorizer(min_df=10, ngram_range=(1, 2))
-    # ベクトル化
-    X_train_valid = vec_tfidf.fit_transform(train_valid['TITLE'])
-    # ベクトルをデータフレームに変換
-    X_train_valid = pd.DataFrame(X_train_valid.toarray(), columns=vec_tfidf.get_feature_names())
-    # データの分割
-    X_valid = X_train_valid[len(train):]
-
-    return X_valid
-
-
-def test_seg(df_pre, train, valid):
     # データの分割
     train_valid = df_pre[:len(train) + len(valid)]
     test = df_pre[len(train) + len(valid):]
-    # TfidfVectorizer
-    vec_tfidf = TfidfVectorizer(min_df=10, ngram_range=(1, 2))
+    # TfidfVectorizer,出現頻度10以下の単語を不要；unigramと bigramを抽出
+    vec_tfidf = TfidfVectorizer(min_df=10, ngram_range=(1,2))
+
     # ベクトル化
-    vec_tfidf.fit_transform(train_valid['TITLE'])  # testの情報は使わない
-    X_test = vec_tfidf.transform(test['TITLE'])
+    X_train_valid = vec_tfidf.fit_transform(train_valid['TITLE'])   # （0,3） 0.8774 -> (doc_idx, word_idx) tfidf
+    X_test = vec_tfidf.transform(test['TITLE'])    # ベクトルをデータフレームに変換
 
-    # ベクトルをデータフレームに変換
+    X_train_valid = pd.DataFrame(X_train_valid.toarray(), columns=vec_tfidf.get_feature_names())
     X_test = pd.DataFrame(X_test.toarray(), columns=vec_tfidf.get_feature_names())
+    # データの分割
+    X_train = X_train_valid[:len(train)]
+    X_valid = X_train_valid[len(train):]
 
-    return X_test
+    return (X_train, X_valid, X_test)
+
 
 
 if __name__ == '__main__':
@@ -85,12 +59,12 @@ if __name__ == '__main__':
     valid, test = train_test_split(valid_test, test_size=0.5, shuffle=True, random_state=123,
                                    stratify=valid_test['CATEGORY'])
     df_pre = df_pre(train, valid, test)
-    X_train = train_seg(df_pre, train, valid)
-    X_valid = valid_seg(df_pre, train, valid)
-    X_test = test_seg(df_pre, train, valid)
+    X_train = seg(df_pre, train, valid)[0]
+    X_valid = seg(df_pre, train, valid)[1]
+    X_test = seg(df_pre, train, valid)[2]
     # データの保存
     X_train.to_csv('./X_train.txt', sep='\t', index=False)
     X_valid.to_csv('./X_valid.txt', sep='\t', index=False)
     X_test.to_csv('./X_test.txt', sep='\t', index=False)
 
-    print(X_test.head())
+    print(X_test.head())  # 2815 columns

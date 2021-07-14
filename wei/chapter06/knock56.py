@@ -8,7 +8,7 @@
 
 from knock50 import load_df
 from sklearn.model_selection import train_test_split
-from knock51 import df_pre, train_seg, test_seg
+from knock51 import df_pre, seg
 from knock53 import score_lg
 from sklearn.linear_model import LogisticRegression
 import numpy as np
@@ -47,10 +47,20 @@ if __name__ == '__main__':
     valid, test = train_test_split(valid_test, test_size=0.5, shuffle=True, random_state=123,
                                    stratify=valid_test['CATEGORY'])
     df_pre = df_pre(train, valid, test)
-    X_train = train_seg(df_pre, train, valid)
-    X_test = test_seg(df_pre, train, valid)
+    X_train = seg(df_pre, train, valid)[0]
+    X_test = seg(df_pre, train, valid)[2]
     lg = LogisticRegression(random_state=123, max_iter=10000, solver='lbfgs', multi_class='auto')
 
     lgfitTe = lg.fit(X_test, test['CATEGORY'])
     test_pred = score_lg(lgfitTe, X_test)
     print(calculate_scores(test['CATEGORY'], test_pred[1]))
+
+'''
+             適合率       再現率     F1スコア
+b       0.881141  0.987567  0.931323
+e       0.888702  0.994340  0.938557
+t       0.987179  0.506579  0.669565
+m       1.000000  0.373626  0.544000
+マイクロ平均  0.893713  0.893713  0.893713
+マクロ平均   0.939256  0.715528  0.770861
+'''

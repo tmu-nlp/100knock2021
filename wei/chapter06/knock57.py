@@ -6,7 +6,7 @@
 
 from knock50 import load_df
 from sklearn.model_selection import train_test_split
-from knock51 import df_pre, train_seg, test_seg
+from knock51 import df_pre, seg
 from sklearn.linear_model import LogisticRegression
 import numpy as np
 import pandas as pd
@@ -33,7 +33,7 @@ if __name__ == '__main__':
                                    stratify=valid_test['CATEGORY'])
     # データを前処理した後、データを再結合
     df_pre = df_pre(train, valid, test)
-    X_train = train_seg(df_pre, train, valid)
+    X_train = seg(df_pre, train, valid)[0]
 
     lg = LogisticRegression(random_state=123, max_iter=10000, solver='lbfgs', multi_class='auto')
     lgfit = lg.fit(X_train, train['CATEGORY'])
@@ -42,3 +42,12 @@ if __name__ == '__main__':
     index = [i for i in range(1, 11)]
     sorted_by_weight(lgfit)
 
+'''
+output example like:
+【カテゴリ】b
+          1      2      3    4   ...         7       8       9          10
+重要度上位   bank    fed  china  ecb  ...  obamacare     oil  yellen     dollar
+重要度下位  video  ebola    the  her  ...      apple  google    star  microsoft
+
+[2 rows x 10 columns]
+'''

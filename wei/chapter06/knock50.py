@@ -50,9 +50,9 @@ if __name__ == '__main__':
     valid, test = train_test_split(valid_test, test_size=0.5, shuffle=True, random_state=123,
                                    stratify=valid_test['CATEGORY'])
     # データの保存
-    train.to_csv('./train.txt', sep='\t', index=False)
-    valid.to_csv('./valid.txt', sep='\t', index=False)
-    test.to_csv('./test.txt', sep='\t', index=False)
+    train.to_csv('./train.txt', columns=['TITLE', 'CATEGORY'], sep='\t', header=False, index=False)
+    valid.to_csv('./valid.txt', columns=['TITLE', 'CATEGORY'], sep='\t', header=False, index=False)
+    test.to_csv('./test.txt', columns=['TITLE', 'CATEGORY'], sep='\t', header=False, index=False)
 
     # 事例数の確認
     print('[train_data]')

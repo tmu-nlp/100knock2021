@@ -13,4 +13,4 @@ model = KeyedVectors.load_word2vec_format(
     './data/GoogleNews-vectors-negative300.bin',
     binary=True)
 us_vec = model['United_States']
-print(us_vec)   # 300-dim vector
+print(us_vec)  # 300-dim vector

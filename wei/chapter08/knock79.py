@@ -1,15 +1,18 @@
 '''
-78. GPU上での学習
+79. 多層ニューラルネットワーク
 '''""
-from torch.utils.data import DataLoader
-import pandas as pd
-from sklearn.model_selection import train_test_split
+
 import torch
 from torch import nn
+from torch.nn import functional as F
+from torch import cuda
 import time
+import pandas as pd
+from torch.utils.data import DataLoader
+from sklearn.model_selection import train_test_split
 from knock70 import transform_w2v
-from knock71 import SGLNet
 from knock73 import NewsDataset
+
 
 # データの読込
 df = pd.read_csv('./../chapter06/data/NewsAggregatorDataset/newsCorpora_re.csv', header=None, sep='\t',
@@ -41,27 +44,43 @@ dataset_valid = NewsDataset(X_valid, y_valid)
 dataset_test = NewsDataset(X_test, y_test)
 
 
-# GPUを指定し、75の損失計算関数を変えて、各データセットの損失を計算できる関数を定義
-def calculate_loss_and_accuracy_GPU(model, criterion, loader, device):
-    model.eval()
-    loss = 0.0
-    total = 0
-    correct = 0
-    with torch.no_grad():
-        for inputs, labels in loader:
-            # 入力TensorをGPUに送る
-            inputs = inputs.to(device)
-            labels = labels.to(device)
-            outputs = model(inputs)
-            loss += criterion(outputs, labels).item()
-            pred = torch.argmax(outputs, dim=-1)
-            total += len(inputs)
-            correct += (pred == labels).sum().item()
+# MLPNetを新たに定義
+class MLPNet(nn.Module):
+  def __init__(self, input_size, mid_size, output_size, mid_layers):
+    super().__init__()
+    self.mid_layers = mid_layers
+    self.fc = nn.Linear(input_size, mid_size)
+    self.fc_mid = nn.Linear(mid_size, mid_size)
+    self.fc_out = nn.Linear(mid_size, output_size)
+    self.bn = nn.BatchNorm1d(mid_size)
+
+  def forward(self, x):
+    x = F.relu(self.fc(x))
+    for _ in range(self.mid_layers):
+      x = F.relu(self.bn(self.fc_mid(x)))
+    x = F.relu(self.fc_out(x))
+
+    return x
+
+
+def calculate_loss_accuracy(model, criterion, loader, device):
+  model.eval()
+  loss = 0.0
+  total = 0
+  correct = 0
+  with torch.no_grad():
+    for inputs, labels in loader:
+      inputs = inputs.to(device)
+      labels = labels.to(device)
+      outputs = model(inputs)
+      loss += criterion(outputs, labels).item()
+      pred = torch.argmax(outputs, dim=-1)
+      total += len(inputs)
+      correct += (pred == labels).sum().item()
 
     return loss / len(loader), correct / total
 
 
-# knock77の関数train_modelを改変し、deviceを指定するための引数を追加
 def train_model(dataset_train, dataset_valid, batch_size, model, criterion, optimizer, num_epochs, device=None):
     # モデルをGPUに送る
     model.to(device)
@@ -69,6 +88,8 @@ def train_model(dataset_train, dataset_valid, batch_size, model, criterion, opti
     # dataloaderの作成
     dataloader_train = DataLoader(dataset_train, batch_size=batch_size, shuffle=True)
     dataloader_valid = DataLoader(dataset_valid, batch_size=len(dataset_valid), shuffle=False)
+
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, num_epochs,eta_min=1e-5, last_epoch=-1)
 
     # 学習
     log_train = []
@@ -92,8 +113,8 @@ def train_model(dataset_train, dataset_valid, batch_size, model, criterion, opti
             optimizer.step()
 
         # 損失と正解率の算出
-        loss_train, acc_train = calculate_loss_and_accuracy_GPU(model, criterion, dataloader_train, device)
-        loss_valid, acc_valid = calculate_loss_and_accuracy_GPU(model, criterion, dataloader_valid, device)
+        loss_train, acc_train = calculate_loss_accuracy(model, criterion, dataloader_train, device)
+        loss_valid, acc_valid = calculate_loss_accuracy(model, criterion, dataloader_valid, device)
         log_train.append([loss_train, acc_train])
         log_valid.append([loss_valid, acc_valid])
 
@@ -101,7 +122,7 @@ def train_model(dataset_train, dataset_valid, batch_size, model, criterion, opti
         res_dir = './data/'
         model_param_dic = {'epoch': epoch, 'model_state_dict': model.state_dict(),
                            'optimizer_state_dict': optimizer.state_dict()}
-        torch.save(model_param_dic, res_dir + f'checkpoint_knock78_{epoch + 1}.pth')
+        torch.save(model_param_dic, res_dir + f'checkpoint_knock79_{epoch + 1}.pth')
 
         # 終了時刻の記録
         e_time = time.time()
@@ -110,48 +131,37 @@ def train_model(dataset_train, dataset_valid, batch_size, model, criterion, opti
         # ログを出力
         print(
             f'epoch: {epoch + 1}, loss_train: {loss_train:.4f}, accuracy_train: {acc_train:.4f}, loss_valid: {loss_valid:.4f}, accuracy_valid: {acc_valid:.4f}, timeused : {timeused :.4f}sec')
+        if epoch > 2 and log_valid[epoch -3][0] <= log_valid[epoch -2][0] <= log_valid[epoch - 1][0] <= log_valid[epoch][0]:
+            break
+        scheduler.step()
 
     return {'train': log_train, 'valid': log_valid}
 
-
 if __name__ == '__main__':
-
-    device = torch.device('cuda')
-
-    # モデルの定義
-    SigleNNmodel = SGLNet(300, 4)
-
-    # 損失関数の定義
+    device = 'cuda' if cuda.is_available() else 'cpu'
+    model = MLPNet(300, 200, 4 ,1)
     criterion = nn.CrossEntropyLoss()
+    optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
 
-    # オプティマイザの定義
-    optimizer = torch.optim.SGD(SigleNNmodel.parameters(), lr=1e-1)
-    # モデルの学習
-    for batch_size in [2 ** i for i in range(11)]:
-        print(f'バッチサイズ: {batch_size}')
-        log = train_model(dataset_train, dataset_valid, batch_size, SigleNNmodel, criterion, optimizer, 1,
-                          device=device)
-'''
-バッチサイズ: 1
-epoch: 1, loss_train: 0.3350, accuracy_train: 0.8842, loss_valid: 0.3550, accuracy_valid: 0.8855, timeused : 10.6196sec
-バッチサイズ: 2
-epoch: 1, loss_train: 0.3014, accuracy_train: 0.8968, loss_valid: 0.3305, accuracy_valid: 0.8922, timeused : 5.3526sec
-バッチサイズ: 4
-epoch: 1, loss_train: 0.2907, accuracy_train: 0.9017, loss_valid: 0.3258, accuracy_valid: 0.8952, timeused : 2.5744sec
-バッチサイズ: 8
-epoch: 1, loss_train: 0.2861, accuracy_train: 0.9029, loss_valid: 0.3222, accuracy_valid: 0.8937, timeused : 1.5297sec
-バッチサイズ: 16
-epoch: 1, loss_train: 0.2844, accuracy_train: 0.9029, loss_valid: 0.3208, accuracy_valid: 0.8967, timeused : 0.7759sec
-バッチサイズ: 32
-epoch: 1, loss_train: 0.2834, accuracy_train: 0.9034, loss_valid: 0.3202, accuracy_valid: 0.8960, timeused : 0.4495sec
-バッチサイズ: 64
-epoch: 1, loss_train: 0.2829, accuracy_train: 0.9038, loss_valid: 0.3199, accuracy_valid: 0.8967, timeused : 0.2879sec
-バッチサイズ: 128
-epoch: 1, loss_train: 0.2827, accuracy_train: 0.9038, loss_valid: 0.3197, accuracy_valid: 0.8967, timeused : 0.2221sec
-バッチサイズ: 256
-epoch: 1, loss_train: 0.2823, accuracy_train: 0.9037, loss_valid: 0.3197, accuracy_valid: 0.8967, timeused : 0.1735sec
-バッチサイズ: 512
-epoch: 1, loss_train: 0.2828, accuracy_train: 0.9037, loss_valid: 0.3196, accuracy_valid: 0.8967, timeused : 0.1906sec
-バッチサイズ: 1024
-epoch: 1, loss_train: 0.2805, accuracy_train: 0.9037, loss_valid: 0.3196, accuracy_valid: 0.8967, timeused : 0.2574sec
-'''
+    log = train_model(dataset_train, dataset_valid, 64, model, criterion, optimizer, 100, device)
+
+    def calculate_accuracy(model, loader, device):
+        model.eval()
+        total = 0
+        correct = 0
+        with torch.no_grad():
+            for inputs, labels in loader:
+                inputs = inputs.to(device)
+                labels = labels.to(device)
+                outputs = model(inputs)
+                pred = torch.argmax(outputs, dim=-1)
+                total += len(inputs)
+                correct += (pred == labels).sum().item()
+        return correct / total
+
+    acc_train = calculate_accuracy(model, dataset_train, device)
+    acc_valid = calculate_accuracy(model, dataset_valid, device)
+    print(f'accuracy on train:{acc_train:.3f}')
+    print(f'accuracy on valid:{acc_valid:.3f}')
+
+

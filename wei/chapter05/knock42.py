@@ -3,20 +3,17 @@
 ただし，句読点などの記号は出力しないようにせよ．'''
 
 
-from knock41 import Chunk, parse_cabocha
+from knock41 import load_chunk
 
 
-if __name__ == '__main__':
-    with open('./data/ai.ja/ai.ja.txt.parsed','r',encoding='utf-8') as f:
-        blocks = f.read().split('EOS\n')
-    blocks = list(filter(lambda x: x != '', blocks))
-    blocks = [parse_cabocha(block) for block in blocks]
+
+if __name__ ==  '__main__':
+    filepath = './data/ai.ja/ai.ja.txt.parsed'
+    res = load_chunk(filepath)
+    for chunk in res[2].chunks:
+        if int(chunk.dst) != -1:
+            modifier = ''.join([morph.surface if morph.pos != '記号' else '' for morph in chunk.morphs])
+            modifiee = ''.join([morph.surface if morph.pos != '記号' else '' for morph in res[2].chunks[int(chunk.dst)].morphs])
+            print(modifier,'\t', modfifiee)
 
 
-    for b in blocks:                # 各文集合の1文ごと
-        for m in b:                 # 1文の文節ごと
-            if int(m.dst) > -1:
-                print(''.join([mo.surface if mo.pos != '記号' else '' for mo in m.morphs]),
-                      ''.join([mo.surface if mo.pos != '記号' else '' for mo in b[int(m.dst)].morphs]), sep = '\t')
-
-                # 記号を排除して、文節表層形の

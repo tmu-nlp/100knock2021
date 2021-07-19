@@ -5,50 +5,36 @@
 各文をMorphオブジェクトのリストとして表現し，冒頭の説明文の形態素列を表示せよ．"""
 
 
-class Morph():
+class Morph:
     '''形態素クラス
     　　表層形（surface），基本形（base），品詞（pos），品詞細分類1（pos1）をメンバ変数に持つ'''
-    def __init__(self, dc):
-        self.surface = dc['surface']
-        self.base = dc['base']
-        self.pos = dc['pos']
-        self.pos1 = dc['pos1']
-
-
-def parse_cabocha(block):                          # 1文のMorphオブジェクトリストを作る
-    res = []
-    for line in block.split('\n'):                  # list中存在''元素
-        if line == '':
-            return res
-        elif line[0] == '*':
-            continue
-        # print(line.split('\t'))
-        (surface, attr) = line.split('\t')
-        '''此处遇到ValueError(expected2,got1),原因是：psrsed文件中最后不是'EOS\n',
-            导致最后一行的'EOS'被遍历,len该行为1，无法得到2个值。
-            解决方法：psrsed文件中加一行'''
+    def __init__(self, morphs):
+        surface, attr = morphs.split('\t')
         attr = attr.split(',')
-        lineDict = {
-            'surface':surface,
-            'base':attr[6],
-            'pos':attr[0],
-            'pos1':attr[1]
-        }
-        res.append(Morph(lineDict))
-    return res
+        self.surface = surface
+        self.base = attr[6]
+        self.pos = attr[0]
+        self.pos1 = attr[1]
+
+
+def load_morphs(file_path):                          # 1文のMorphオブジェクトリストを作る
+    sentences = []
+    morphs = []
+    with open(file_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            if line[0] == '*':              # 係り受け関係を示す行をスキップ
+                continue
+            elif line != 'EOS\n':           # 文末以外の場合、Morph()で得た形態素辞書をリストに追加
+                morphs.append(Morph(line))
+            else:
+                sentences.append(morphs)      # 文ごとに形態素辞書リストを追加
+        return sentences
 
 
 if __name__ ==  '__main__':
-    with open('./data/ai.ja/ai.ja.txt.parsed','r',encoding='utf-8') as f:
-        blocks = f.read().split('EOS\n')                          # parsed文件中两个‘EOS\n’的部分将成为blocks列表中的''，共74个。
-        # print(len(blocks))                                      # 文件ai.ja有158行
-    blocks = list(filter(lambda x: x !='', blocks))               # 过滤掉列表中的''后, len(blocks)-> 83文
-    blocks = [parse_cabocha(block) for block in blocks]           # 各文をMorphオブジェクトリストとし表現
-
-
-
-
-    for m in blocks[2]:
+    filepath = './data/ai.ja/ai.ja.txt.parsed'
+    res = load_morphs(filepath)
+    for m in res[2]:
 
         print(vars(m))                 # 1文のMorphオブジェクトリスト
 

@@ -2,22 +2,19 @@
 名詞を含む文節が，動詞を含む文節に係るとき，これらをタブ区切り形式で抽出せよ．
 ただし，句読点などの記号は出力しないようにせよ．'''
 
-from knock41 import Chunk, parse_cabocha
+
+from knock41 import load_chunk
 
 
-if __name__ == '__main__':
-    with open('./data/ai.ja/ai.ja.txt.parsed','r',encoding='utf-8') as f:
-        blocks = f.read().split('EOS\n')
-    blocks = list(filter(lambda x: x != '', blocks))
-    blocks = [parse_cabocha(block) for block in blocks]
 
-
-    for b in blocks:
-        for m in b:
-            if int(m.dst) > -1:
-                pre_text = ''.join([mo.surface if mo.pos != '記号' else '' for mo in m.morphs])
-                pre_pos = [mo.pos for mo in m.morphs]
-                post_text = ''.join([mo.surface if mo.pos != '記号' else '' for mo in b[int(m.dst)].morphs])
-                post_pos = [mo.pos for mo in b[int(m.dst)].morphs]
-                if '名詞' in pre_pos and '動詞' in post_pos:
-                    print(pre_text, post_text, sep = '\t')
+if __name__ ==  '__main__':
+    filepath = './data/ai.ja/ai.ja.txt.parsed'
+    res = load_chunk(filepath)
+    for chunk in res[2].chunks:
+        if int(chunk.dst) != -1:            # 文末以外の場合
+            modifier = ''.join([morph.surface if morph.pos != '記号' else '' for morph in chunk.morphs])
+            modifier_pos = [morph.pos for morph in chunk.morphs]
+            modifiee = ''.join([morph.surface if morph.pos != '記号' else '' for morph in res[2].chunks[int(chunk.dst)].morphs])
+            modifiee_pos = [morph.pos for morph in res[2].chunks[int(chunk.dst)].morphs]
+            if '名詞' in modifier_pos and '動詞' in modifiee_pos:
+                print(modifier,'\t', modifiee)

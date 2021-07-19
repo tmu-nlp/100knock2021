@@ -6,8 +6,7 @@
 
 from knock40 import Morph
 
-
-
+# 文は文節リストを要素に持ち、文節は形態素リストを要素に持つ
 class Chunk():
     def __init__(self, morphs, dst):
         self.morphs = morphs        # 形態素(Morphオブジェクト)のリスト
@@ -15,46 +14,37 @@ class Chunk():
         self.srcs = []              # 係り元文節インデックス番号のリスト
 
 
-def parse_cabocha(block):
-    def check_create_chunk(tmp):
-        if len(tmp) > 0:            # *から行ではないとき、tmpは1文のMorphオブジェクトリスト
-            c = Chunk(tmp, dst)
-            res.append(c)           # 1文のChunkオブジェクトのリスト
-            tmp = []
-        return tmp
+class Sentence():
+    def __init__(self, chunks):
+        self.chunks = chunks
+        for i, chunk in enumerate(self.chunks):
+            if chunk.dst != -1:
+                self.chunks[chunk.dst].srcs.append(i)
 
-    res = []
-    tmp = []
-    dst = []
-    for line in block.split('\n'):
-        if line =='':
-            tmp = check_create_chunk(tmp)
-        elif line[0] == '*':
-            dst = line.split(' ')[2].rstrip('D')                 # 係り先文節インデックス番号を取得
-            tmp = check_create_chunk(tmp)
-        else:
-            (surface, attr) =line.split('\t')                    # 1文のMorphオブジェクトリストを取得
-            attr = attr.split(',')
-            lineDict = {
-                'surface':surface,
-                'base':attr[6],
-                'pos':attr[0],
-                'pos1':attr[1]
-            }
-            tmp.append(Morph(lineDict))
-
-
-    for i,r in enumerate(res):
-        res[int(r.dst)].srcs.append(i)               # 係り元文節インデックス番号のリスト
-    return res
-
-if __name__ == '__main__':
-    with open('./data/ai.ja/ai.ja.txt.parsed','r',encoding='utf-8') as f:
-        blocks = f.read().split('EOS\n')
-    blocks = list(filter(lambda x: x != '', blocks))
-    blocks = [parse_cabocha(block) for block in blocks]
-    for m in blocks[2]:
-        print(''.join([mo.surface for mo in m.morphs]), m.dst, m.srcs)
-        # 1文の各文節str、係り先文節のインデックス番号、係り元文節インデックス番号リスト
+def load_chunk(file_path):
+    sentences = []
+    chunks = []
+    morphs = []
+    with open(file_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            if line[0] == '*':                             # * 0 -1D 1/1 0.000000　
+                if len(morphs) > 0:
+                    chunks.append(Chunk(morphs, dst))       # 直前の文節の情報に対して、Chunk()による結果を文節リストに追加
+                    morphs = []
+                dst = int(line.split(' ')[2].rstrip('D'))   # 直後の文節の係り先を取得　　
+            elif line != 'EOS\n':
+                morphs.append(Morph(line))       # Morph objectを返し、形態素リストに追加
+            else:
+                chunks.append(Chunk(morphs, dst))
+                sentences.append(Sentence(chunks))      #文節リストにSentence()を適用し、文リストに追加
+                morphs = []
+                chunks = []
+                dst = int()
+    return sentences
 
 
+if __name__ ==  '__main__':
+    filepath = './data/ai.ja/ai.ja.txt.parsed'
+    res = load_chunk(filepath)
+    for chunk in res[2].chunks:
+        print([morph.surface for morph in chunk.morphs], chunk.dst, chunk.srcs)

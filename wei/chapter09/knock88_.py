@@ -1,9 +1,8 @@
 ""'''
-87. 確率的勾配降下法によるCNNの学習
-SGDを用いて、訓練データ上の損失と正解率、評価データ上の損失と正解率を表示しながら
-問題86で構築したCNNを学習
-
-'''
+88. パラメータチューニング
+問題85や問題87のコードを改変し，ニューラルネットワークの形状やハイパーパラメータを調整しながら，
+高性能なカテゴリ分類器を構築せよ．
+knock87のoptimizerをAdamに変更'''
 
 import numpy as np
 import pandas as pd
@@ -101,7 +100,7 @@ ds = TensorDataset(X_train.to(device), y_train.to(device))
 # Dataloaderを作成
 loader = DataLoader(ds, batch_size=1024, shuffle=True)
 loss_func = torch.nn.CrossEntropyLoss()
-optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-5)
 
 if __name__ == '__main__':
     for i in tqdm(range(3), desc='Processing'):
@@ -133,13 +132,19 @@ if __name__ == '__main__':
 '''
 lr=1e-1
 epoch 10
-accuracy on train:0.749906402096593
-accuracy on valid:0.7110778443113772
-Processing: 100%|██████████| 3/3 [00:11<00:00,  3.92s/it]
+accuracy on train:0.9438412579558217
+accuracy on valid:0.7956586826347305
+Processing: 100%|██████████| 3/3 [00:10<00:00,  3.58s/it]
 
 lr=1e-3
 epoch 10
-accuracy on train:0.505054286783976
-accuracy on valid:0.49550898203592814
-Processing: 100%|██████████| 3/3 [00:11<00:00,  3.68s/it]
+accuracy on train:0.9989704230625234
+accuracy on valid:0.8645209580838323
+Processing: 100%|██████████| 3/3 [00:11<00:00,  3.73s/it]
+
+lr=1e-5
+epoch 10
+accuracy on train:0.5003743916136278
+accuracy on valid:0.5224550898203593
+Processing: 100%|██████████| 3/3 [00:12<00:00,  4.12s/it]
 '''

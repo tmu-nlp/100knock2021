@@ -36,6 +36,7 @@ if __name__ == '__main__':
 
     file = './data/UK_info.json'
     pattern = r'\|(.*?)\s=\s*(.+)'
+
     '''|国旗画像 = Flag of the United Kingdom.svg
     |国章画像 = [[ファイル:Royal Coat of Arms of the United Kingdom.svg|85px|イギリスの国章]]
     |国章リンク =（[[イギリスの国章|国章]]）
